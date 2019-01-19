@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 
-import StepIcon from '../../components/ProgressStep/StepIcon';
+import StepIcon from './StepIcon';
 
 class ProgressSteps extends Component {
   state = {
