@@ -17,25 +17,39 @@ class ProgressStep extends Component {
     this.props.setActiveStep(activeStep);
   };
 
+  onSubmit = () => {
+    this.props.onSubmit();
+  };
+
   renderNextButton = () => {
-    if (this.props.activeStep > 0) {
-      return <Button title={this.props.previousBtnText} onPress={this.onPreviousStep} />;
-    }
+    return (
+      <Button
+        title={this.props.activeStep === this.props.stepCount - 1 ? this.props.finishBtnText : this.props.nextBtnText}
+        onPress={this.props.activeStep === this.props.stepCount - 1 ? this.onSubmit : this.onNextStep}
+        style={this.props.nextBtnStyle}
+      />
+    );
   };
 
   renderPreviousButton = () => {
-    if (this.props.activeStep < this.props.stepCount - 1) {
-      return <Button title={this.props.nextBtnText} onPress={this.onNextStep} />;
-    }
+    return (
+      <Button
+        title={this.props.previousBtnText}
+        onPress={this.onPreviousStep}
+        disabled={this.props.activeStep === 0}
+        style={this.props.previousBtnStyle}
+      />
+    );
   };
 
   render() {
     return (
       <View>
-        {this.props.children}
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          {this.renderNextButton()}
-          {this.renderPreviousButton()}
+        <View style={this.props.containerStyle}>{this.props.children}</View>
+
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ position: 'absolute', right: 0, bottom: 60 }}>{this.renderNextButton()}</View>
+          <View style={{ position: 'absolute', left: 0, bottom: 60 }}>{this.renderPreviousButton()}</View>
         </View>
       </View>
     );
@@ -46,15 +60,21 @@ ProgressStep.propTypes = {
   label: PropTypes.string,
   onNext: PropTypes.func,
   onPrevious: PropTypes.func,
+  onSubmit: PropTypes.func,
   setActiveStep: PropTypes.func,
   nextBtnText: PropTypes.string,
   previousBtnText: PropTypes.string,
-  stepCount: PropTypes.number
+  finishBtnText: PropTypes.string,
+  stepCount: PropTypes.number,
+  containerStyle: PropTypes.object,
+  nextBtnStyle: PropTypes.object,
+  previousBtnStyle: PropTypes.object
 };
 
 ProgressStep.defaultProps = {
   nextBtnText: 'Next',
-  previousBtnText: 'Previous'
+  previousBtnText: 'Previous',
+  finishBtnText: 'Submit'
 };
 
 export default ProgressStep;

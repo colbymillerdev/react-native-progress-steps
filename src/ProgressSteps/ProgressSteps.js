@@ -71,11 +71,12 @@ class ProgressSteps extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.stepIcons}>{this.renderStepIcons()}</View>
-        <View style={this.props.style ? this.props.style : styles.bodyContainer}>
+        <View style={{ flex: 1 }}>
           {React.cloneElement(this.props.children[this.state.activeStep], {
             setActiveStep: this.setActiveStep,
             activeStep: this.state.activeStep,
-            stepCount: this.state.stepCount
+            stepCount: this.state.stepCount,
+            containerStyle: this.props.containerStyle
           })}
         </View>
       </View>
@@ -85,12 +86,14 @@ class ProgressSteps extends Component {
 
 ProgressSteps.propTypes = {
   labelWidth: PropTypes.number,
-  positionFromTop: PropTypes.number
+  positionFromTop: PropTypes.number,
+  containerStyle: PropTypes.object
 };
 
 ProgressSteps.defaultProps = {
   labelWidth: 100,
-  positionFromTop: 30
+  positionFromTop: 30,
+  containerStyle: { flex: 1, justifyContent: 'center', alignItems: 'center' }
 };
 
 export default ProgressSteps;
