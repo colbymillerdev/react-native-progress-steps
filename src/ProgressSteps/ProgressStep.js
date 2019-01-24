@@ -46,9 +46,16 @@ class ProgressStep extends Component {
   };
 
   render() {
+    const centerContainer = {
+      flex: 1,
+      justifyContent: 'center'
+    };
+
     return (
       <View style={{ flex: 1 }}>
-        <ScrollView>{this.props.children}</ScrollView>
+        <ScrollView contentContainerStyle={this.props.centerContainer && centerContainer}>
+          {this.props.children}
+        </ScrollView>
 
         <ProgressButtons renderNextButton={this.renderNextButton} renderPreviousButton={this.renderPreviousButton} />
       </View>
@@ -67,7 +74,8 @@ ProgressStep.propTypes = {
   finishBtnText: PropTypes.string,
   stepCount: PropTypes.number,
   nextBtnStyle: PropTypes.object,
-  previousBtnStyle: PropTypes.object
+  previousBtnStyle: PropTypes.object,
+  centerContainer: PropTypes.bool
 };
 
 ProgressStep.defaultProps = {
