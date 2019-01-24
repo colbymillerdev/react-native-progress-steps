@@ -55,7 +55,7 @@ class ProgressSteps extends Component {
         position: 'relative',
         justifyContent: 'space-evenly',
         flexDirection: 'row',
-        top: this.props.positionFromTop,
+        top: 30,
         marginBottom: 50
       }
     };
@@ -76,13 +76,11 @@ class ProgressSteps extends Component {
 }
 
 ProgressSteps.propTypes = {
-  labelWidth: PropTypes.number,
-  positionFromTop: PropTypes.number
+  labelWidth: PropTypes.number
 };
 
 ProgressSteps.defaultProps = {
-  labelWidth: 100,
-  positionFromTop: 30
+  labelWidth: 100
 };
 
 export default ProgressSteps;
