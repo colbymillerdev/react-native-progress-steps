@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import { View, Button } from 'react-native';
+import { View, Button, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
+
+import ProgressButtons from './ProgressButtons';
 
 class ProgressStep extends Component {
   onNextStep = () => {
     // Changes active index and calls next function passed by parent
     const activeStep = this.props.activeStep + 1;
-    this.props.onNext();
+    // Check if function prop has been passed.
+    this.props.onNext && this.props.onNext();
     this.props.setActiveStep(activeStep);
   };
 
   onPreviousStep = () => {
     // Changes active index and calls previous function passed by parent
     const activeStep = this.props.activeStep - 1;
-    this.props.onPrevious();
+    this.props.onPrevious && this.props.onPrevious();
     this.props.setActiveStep(activeStep);
   };
 
   onSubmit = () => {
-    this.props.onSubmit();
+    this.props.onSubmit && this.props.onSubmit();
   };
 
   renderNextButton = () => {
@@ -44,13 +47,10 @@ class ProgressStep extends Component {
 
   render() {
     return (
-      <View>
-        <View style={this.props.containerStyle}>{this.props.children}</View>
+      <View style={{ flex: 1 }}>
+        <ScrollView>{this.props.children}</ScrollView>
 
-        <View style={{ flexDirection: 'row' }}>
-          <View style={{ position: 'absolute', right: 0, bottom: 60 }}>{this.renderNextButton()}</View>
-          <View style={{ position: 'absolute', left: 0, bottom: 60 }}>{this.renderPreviousButton()}</View>
-        </View>
+        <ProgressButtons renderNextButton={this.renderNextButton} renderPreviousButton={this.renderPreviousButton} />
       </View>
     );
   }
@@ -66,7 +66,6 @@ ProgressStep.propTypes = {
   previousBtnText: PropTypes.string,
   finishBtnText: PropTypes.string,
   stepCount: PropTypes.number,
-  containerStyle: PropTypes.object,
   nextBtnStyle: PropTypes.object,
   previousBtnStyle: PropTypes.object
 };
