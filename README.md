@@ -1,8 +1,8 @@
 # react-native-progress-steps
 
 A simple and fully customizable React Native component that implements a progress stepper UI. 
-    - Content is displayed inside of a customizable ScrollView underneath steps. 
-    - Fully customizable buttons are displayed at the bottom of the component to move between steps.
+* Content is displayed inside of a customizable ScrollView underneath steps. 
+* Fully customizable buttons are displayed at the bottom of the component to move between steps.
 
 ## Installation
 
@@ -28,33 +28,28 @@ import { ProgressStep } from 'react-native-progress-steps';
 Simply place a `<ProgressStep />` tag for each desired step, within the `<ProgressSteps />` wrapper.
 
 ```
-    <ProgressSteps>
-        <ProgressStep
-          label="First"
-          onNext={this.onNextStep}
-          onPrevious={this.onPrevStep}
-          onSubmit={this.onSubmitSteps}
-        >
+      <ProgressSteps>
+        <ProgressStep label="First Step">
           <View style={{ alignItems: 'center' }}>
             <Text>This is the content within step 1!</Text>
           </View>
         </ProgressStep>
-        <ProgressStep
-          label="Second"
-          onNext={this.onNextStep}
-          onPrevious={this.onPrevStep}
-          onSubmit={this.onSubmitSteps}
-        >
+        <ProgressStep label="Second Step">
           <View style={{ alignItems: 'center' }}>
             <Text>This is the content within step 2!</Text>
           </View>
         </ProgressStep>
-    </ProgressSteps>
+        <ProgressStep label="Third Step">
+          <View style={{ alignItems: 'center' }}>
+            <Text>This is the content within step 3!</Text>
+          </View>
+        </ProgressStep>
+      </ProgressSteps>
 ```
 
 ## Documentation
 
-### <ProgressSteps />
+### Progress Steps Component
 | Name                      | Description                              | Default     | Type   |
 |---------------------------|------------------------------------------|-------------|--------|
 | labelWidth                | Width of the label under each step icon  | 100         | Number |
@@ -74,7 +69,7 @@ Simply place a `<ProgressStep />` tag for each desired step, within the `<Progre
 | disabledStepNumColor      | Color of the disabled step number        | white       | String |
 | completedCheckColor       | Color of the completed step checkmark    | white       | String |
 
-### <ProgressStep />
+### Progress Step Component
 | Name | Description | Default | Type |
 |------------------|--------------------------------------------------------------------------|----------|---------|
 | label | Label associated with the current step | null | String |
@@ -89,7 +84,7 @@ Simply place a `<ProgressStep />` tag for each desired step, within the `<Progre
 | centerContainer | Value that decides whether to center content inside ScrollView container | false | Boolean |
 
 ## Contributing
-Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that need to be made.
+Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that can be made.
 
 ## Author
 Colby Miller
