@@ -54,6 +54,7 @@ class ProgressSteps extends Component {
       stepIcons: {
         position: 'relative',
         justifyContent: 'space-evenly',
+        alignSelf: 'center',
         flexDirection: 'row',
         top: 30,
         marginBottom: 50
