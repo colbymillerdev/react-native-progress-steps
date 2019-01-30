@@ -7,7 +7,7 @@ A simple and fully customizable React Native component that implements a progres
 
 Example One             |  Example Two
 :-------------------------:|:-------------------------:
-![](assets/react-native-progress-steps-1.gif) [examples/ExampleOne.js](examples/ExampleOne.js)|   ![](assets/react-native-progress-steps-2.gif) [examples/ExampleTwo.js](examples/ExampleTwo.js)
+![](assets/react-native-progress-steps_1.gif) [examples/ExampleOne.js](examples/ExampleOne.js)| ![](assets/react-native-progress-steps_2.gif) [examples/ExampleTwo.js](examples/ExampleTwo.js)
 
 
 ## Installation
