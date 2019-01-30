@@ -76,12 +76,4 @@ class ProgressSteps extends Component {
   }
 }
 
-ProgressSteps.propTypes = {
-  labelWidth: PropTypes.number
-};
-
-ProgressSteps.defaultProps = {
-  labelWidth: 100
-};
-
 export default ProgressSteps;

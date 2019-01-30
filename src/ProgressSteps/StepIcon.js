@@ -24,7 +24,7 @@ class StepIcon extends Component {
         labelText: {
           textAlign: 'center',
           flexWrap: 'wrap',
-          width: this.props.labelWidth,
+          width: 100,
           paddingTop: 5,
           fontFamily: this.props.labelFontFamily,
           color: this.props.activeLabelColor
@@ -68,7 +68,7 @@ class StepIcon extends Component {
         labelText: {
           textAlign: 'center',
           flexWrap: 'wrap',
-          width: this.props.labelWidth,
+          width: 100,
           paddingTop: 5,
           fontFamily: this.props.labelFontFamily,
           color: this.props.labelColor,
@@ -113,7 +113,7 @@ class StepIcon extends Component {
         labelText: {
           textAlign: 'center',
           flexWrap: 'wrap',
-          width: this.props.labelWidth,
+          width: 100,
           paddingTop: 5,
           fontFamily: this.props.labelFontFamily,
           color: this.props.labelColor,
@@ -165,7 +165,6 @@ class StepIcon extends Component {
 }
 
 StepIcon.propTypes = {
-  labelWidth: PropTypes.number.isRequired,
   stepCount: PropTypes.number.isRequired,
   stepNum: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
