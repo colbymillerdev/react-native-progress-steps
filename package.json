@@ -12,16 +12,17 @@
   },
   "keywords": [
     "react-native",
-    "react-component",
-    "react-native-component",
+    "react component",
+    "react native component",
     "react",
+    "react native",
     "mobile",
     "ios",
     "android",
     "ui",
     "stepper",
     "progress",
-    "progress-steps"
+    "progress steps"
   ],
   "author": "Colby Miller",
   "license": "MIT",
