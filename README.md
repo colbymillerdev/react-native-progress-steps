@@ -56,6 +56,34 @@ Simply place a `<ProgressStep />` tag for each desired step within the `<Progres
 </View>
 ```
 
+### Button Styling Usage
+A buttons container and text are fully customizable using the `nextBtnStyle, nextBtnTextStyle, previousBtnStyle, and previousBtnTextStyle` props.
+
+Example usage to change a buttons text color: 
+
+```
+const buttonTextStyle = {
+    color: '#393939'
+};
+
+return (
+    <View style={{flex: 1}}>
+        <ProgressSteps>
+            <ProgressStep label="First Step" nextBtnTextStyle={buttonTextStyle} previousBtnTextStyle={buttonTextStyle}>
+                <View style={{ alignItems: 'center' }}>
+                    <Text>This is the content within step 1!</Text>
+                </View>
+            </ProgressStep>
+            <ProgressStep label="Second Step" nextBtnTextStyle={buttonTextStyle} previousBtnTextStyle={buttonTextStyle}>
+                <View style={{ alignItems: 'center' }}>
+                    <Text>This is the content within step 2!</Text>
+                </View>
+            </ProgressStep>
+        </ProgressSteps>
+    </View>
+)
+```
+
 ## Documentation
 
 ### Progress Steps Component
@@ -87,8 +115,10 @@ Simply place a `<ProgressStep />` tag for each desired step within the `<Progres
 | nextBtnText | Text to display inside the next button | Next | String |
 | previousBtnText | Text to display inside the previous button | Previous | String |
 | finishBtnText | Text to display inside the button on the last step | Submit | String |
-| nextBtnStyle | Style object to provide to the next/finish buttons | null | Object |
-| previousBtnStyle | Style object to provide to the previous button | null | Object |
+| nextBtnStyle | Style object to provide to the next/finish buttons | { textAlign: 'center', padding: 8 } | Object |
+| nextBtnTextStyle | Style object to provide to the next/finish button text | { color: '#007aff', fontSize: 18 } | Object |
+| previousBtnStyle | Style object to provide to the previous button | { textAlign: 'center', padding: 8 } | Object |
+| previousBtnTextStyle | Style object to provide to the previous button text | { color: '#007aff', fontSize: 18 } | Object |
 | centerContainer | Value that decides whether to center content inside ScrollView container | false | Boolean |
 
 ## Contributing

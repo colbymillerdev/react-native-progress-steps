@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, ScrollView } from 'react-native';
+import { View, Button, ScrollView, TouchableOpacity, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 import ProgressButtons from './ProgressButtons';
@@ -25,23 +25,52 @@ class ProgressStep extends Component {
   };
 
   renderNextButton = () => {
+    const btnStyle = {
+      textAlign: 'center',
+      padding: 8,
+      ...this.props.nextBtnStyle
+    };
+
+    const btnTextStyle = {
+      color: '#007AFF',
+      fontSize: 18,
+      ...this.props.nextBtnTextStyle
+    };
+
     return (
-      <Button
-        title={this.props.activeStep === this.props.stepCount - 1 ? this.props.finishBtnText : this.props.nextBtnText}
+      <TouchableOpacity
+        style={btnStyle}
         onPress={this.props.activeStep === this.props.stepCount - 1 ? this.onSubmit : this.onNextStep}
-        style={this.props.nextBtnStyle}
-      />
+      >
+        <Text style={btnTextStyle}>
+          {this.props.activeStep === this.props.stepCount - 1 ? this.props.finishBtnText : this.props.nextBtnText}
+        </Text>
+      </TouchableOpacity>
     );
   };
 
   renderPreviousButton = () => {
+    const btnStyle = {
+      textAlign: 'center',
+      padding: 8,
+      ...this.props.previousBtnStyle
+    };
+
+    const btnTextStyle = {
+      color: '#007AFF',
+      fontSize: 18,
+      ...this.props.previousBtnTextStyle
+    };
+
+    const disabledBtnText = {
+      color: '#cdcdcd',
+      fontSize: 18
+    };
+
     return (
-      <Button
-        title={this.props.previousBtnText}
-        onPress={this.onPreviousStep}
-        disabled={this.props.activeStep === 0}
-        style={this.props.previousBtnStyle}
-      />
+      <TouchableOpacity style={btnStyle} onPress={this.onPreviousStep} disabled={this.props.activeStep === 0}>
+        <Text style={this.props.activeStep === 0 ? disabledBtnText : btnTextStyle}>{this.props.previousBtnText}</Text>
+      </TouchableOpacity>
     );
   };
 
@@ -74,7 +103,9 @@ ProgressStep.propTypes = {
   finishBtnText: PropTypes.string,
   stepCount: PropTypes.number,
   nextBtnStyle: PropTypes.object,
+  nextBtnTextStyle: PropTypes.object,
   previousBtnStyle: PropTypes.object,
+  previousBtnTextStyle: PropTypes.object,
   centerContainer: PropTypes.bool
 };
 
