@@ -57,7 +57,7 @@ Simply place a `<ProgressStep />` tag for each desired step within the `<Progres
 ```
 
 ### Button Styling Usage
-A buttons container and text are fully customizable using the `nextBtnStyle, nextBtnTextStyle, previousBtnStyle, and previousBtnTextStyle` props.
+Button container and text are fully customizable using the `nextBtnStyle, nextBtnTextStyle, previousBtnStyle, and previousBtnTextStyle` props.
 
 Example usage to change a buttons text color: 
 
