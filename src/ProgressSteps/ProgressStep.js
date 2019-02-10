@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, ScrollView, TouchableOpacity, Text } from 'react-native';
+import { View, ScrollView, TouchableOpacity, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 import ProgressButtons from './ProgressButtons';

@@ -125,7 +125,7 @@ return (
 Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that can be made.
 
 ## Author
-Colby Miller
+Colby Miller | [https://colbymillerdev.com](https://colbymillerdev.com)
 
 ## License
 [MIT](./LICENSE)
