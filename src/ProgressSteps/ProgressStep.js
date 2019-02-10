@@ -37,12 +37,21 @@ class ProgressStep extends Component {
       ...this.props.nextBtnTextStyle
     };
 
+    const disabledBtnText = {
+      color: '#cdcdcd',
+      fontSize: 18
+    };
+
+    let textStyle = [btnTextStyle];
+    if (this.props.nextBtnDisabled) textStyle.push(disabledBtnText);
+
     return (
       <TouchableOpacity
         style={btnStyle}
         onPress={this.props.activeStep === this.props.stepCount - 1 ? this.onSubmit : this.onNextStep}
+        disabled={this.props.nextBtnDisabled}
       >
-        <Text style={btnTextStyle}>
+        <Text style={textStyle}>
           {this.props.activeStep === this.props.stepCount - 1 ? this.props.finishBtnText : this.props.nextBtnText}
         </Text>
       </TouchableOpacity>
@@ -67,9 +76,12 @@ class ProgressStep extends Component {
       fontSize: 18
     };
 
+    let textStyle = [btnTextStyle];
+    if (this.props.previousBtnDisabled) textStyle.push(disabledBtnText);
+
     return (
-      <TouchableOpacity style={btnStyle} onPress={this.onPreviousStep} disabled={this.props.activeStep === 0}>
-        <Text style={this.props.activeStep === 0 ? disabledBtnText : btnTextStyle}>{this.props.previousBtnText}</Text>
+      <TouchableOpacity style={btnStyle} onPress={this.onPreviousStep} disabled={this.props.previousBtnDisabled}>
+        <Text style={textStyle}>{this.props.activeStep === 0 ? '' : this.props.previousBtnText}</Text>
       </TouchableOpacity>
     );
   };
