@@ -24,13 +24,11 @@ class ExampleTwo extends Component {
     const progressStepsStyle = {
       activeStepIconBorderColor: '#686868',
       activeLabelColor: '#686868',
-      activeStepNumColor: '#686868',
+      activeStepNumColor: 'white',
+      activeStepIconColor: '#686868',
       completedStepIconColor: '#686868',
       completedProgressBarColor: '#686868',
-      completedCheckColor: '#4bb543',
-      disabledStepIconColor: '#686868',
-      progressBarColor: '#686868',
-      disabledStepNumColor: 'rgba(255, 255, 255, .6)'
+      completedCheckColor: '#4bb543'
     };
 
     const buttonTextStyle = {

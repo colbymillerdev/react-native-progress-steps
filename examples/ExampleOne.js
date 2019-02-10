@@ -25,18 +25,9 @@ class ExampleOne extends Component {
   };
 
   render() {
-    const stepsStyle = {
-      activeStepIconBorderColor: '#FF9100',
-      activeStepIconColor: '#FF9100',
-      completedProgressBarColor: '#FF9100',
-      completedStepIconColor: '#FF9100',
-      activeLabelColor: '#FF9100',
-      activeStepNumColor: 'white'
-    };
-
     return (
       <View style={{ flex: 1, marginTop: 50 }}>
-        <ProgressSteps {...stepsStyle}>
+        <ProgressSteps>
           <ProgressStep
             label="Payment"
             onNext={this.onPaymentStepComplete}
