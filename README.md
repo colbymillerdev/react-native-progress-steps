@@ -117,8 +117,10 @@ return (
 | finishBtnText | Text to display inside the button on the last step | Submit | String |
 | nextBtnStyle | Style object to provide to the next/finish buttons | { textAlign: 'center', padding: 8 } | Object |
 | nextBtnTextStyle | Style object to provide to the next/finish button text | { color: '#007aff', fontSize: 18 } | Object |
+| nextBtnDisabled | Value to disable/enable next button | false | Boolean |
 | previousBtnStyle | Style object to provide to the previous button | { textAlign: 'center', padding: 8 } | Object |
 | previousBtnTextStyle | Style object to provide to the previous button text | { color: '#007aff', fontSize: 18 } | Object |
+| previousBtnDisabled | Value to disable/enable previous button | false | Boolean |
 | centerContainer | Value that decides whether to center content inside ScrollView container | false | Boolean |
 
 ## Contributing

@@ -116,15 +116,19 @@ ProgressStep.propTypes = {
   stepCount: PropTypes.number,
   nextBtnStyle: PropTypes.object,
   nextBtnTextStyle: PropTypes.object,
+  nextBtnDisabled: PropTypes.bool,
   previousBtnStyle: PropTypes.object,
   previousBtnTextStyle: PropTypes.object,
+  previousBtnDisabled: PropTypes.bool,
   centerContainer: PropTypes.bool
 };
 
 ProgressStep.defaultProps = {
   nextBtnText: 'Next',
   previousBtnText: 'Previous',
-  finishBtnText: 'Submit'
+  finishBtnText: 'Submit',
+  nextBtnDisabled: false,
+  previousBtnDisabled: false
 };
 
 export default ProgressStep;

@@ -21,15 +21,34 @@ class ExampleTwo extends Component {
   };
 
   render() {
+    const progressStepsStyle = {
+      activeStepIconBorderColor: '#686868',
+      activeLabelColor: '#686868',
+      activeStepNumColor: '#686868',
+      completedStepIconColor: '#686868',
+      completedProgressBarColor: '#686868',
+      completedCheckColor: '#4bb543',
+      disabledStepIconColor: '#686868',
+      progressBarColor: '#686868',
+      disabledStepNumColor: 'rgba(255, 255, 255, .6)'
+    };
+
+    const buttonTextStyle = {
+      color: '#686868',
+      fontWeight: 'bold'
+    };
+
     return (
       <View style={{ flex: 1, marginTop: 50 }}>
-        <ProgressSteps>
+        <ProgressSteps {...progressStepsStyle}>
           <ProgressStep
             label="First"
             onNext={this.onNextStep}
             onPrevious={this.onPrevStep}
             onSubmit={this.onSubmitSteps}
             centerContainer
+            nextBtnTextStyle={buttonTextStyle}
+            previousBtnTextStyle={buttonTextStyle}
           >
             <View style={{ alignItems: 'center' }}>
               <Text>This is the content within step 1!</Text>
@@ -41,6 +60,8 @@ class ExampleTwo extends Component {
             onPrevious={this.onPrevStep}
             onSubmit={this.onSubmitSteps}
             centerContainer
+            nextBtnTextStyle={buttonTextStyle}
+            previousBtnTextStyle={buttonTextStyle}
           >
             <View style={{ alignItems: 'center' }}>
               <Text>This is the content within step 2!</Text>
@@ -52,6 +73,8 @@ class ExampleTwo extends Component {
             onPrevious={this.onPrevStep}
             onSubmit={this.onSubmitSteps}
             centerContainer
+            nextBtnTextStyle={buttonTextStyle}
+            previousBtnTextStyle={buttonTextStyle}
           >
             <View style={{ alignItems: 'center' }}>
               <Text>This is the content within step 3!</Text>
@@ -63,6 +86,8 @@ class ExampleTwo extends Component {
             onPrevious={this.onPrevStep}
             onSubmit={this.onSubmitSteps}
             centerContainer
+            nextBtnTextStyle={buttonTextStyle}
+            previousBtnTextStyle={buttonTextStyle}
           >
             <View style={{ alignItems: 'center' }}>
               <Text>This is the content within step 4!</Text>
@@ -74,6 +99,8 @@ class ExampleTwo extends Component {
             onPrevious={this.onPrevStep}
             onSubmit={this.onSubmitSteps}
             centerContainer
+            nextBtnTextStyle={buttonTextStyle}
+            previousBtnTextStyle={buttonTextStyle}
           >
             <View style={{ alignItems: 'center' }}>
               <Text>This is the content within step 5!</Text>
