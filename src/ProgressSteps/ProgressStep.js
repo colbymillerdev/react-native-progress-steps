@@ -38,8 +38,7 @@ class ProgressStep extends Component {
     };
 
     const disabledBtnText = {
-      color: '#cdcdcd',
-      fontSize: 18
+      color: '#cdcdcd'
     };
 
     let textStyle = [btnTextStyle];
@@ -72,8 +71,7 @@ class ProgressStep extends Component {
     };
 
     const disabledBtnText = {
-      color: '#cdcdcd',
-      fontSize: 18
+      color: '#cdcdcd'
     };
 
     let textStyle = [btnTextStyle];
