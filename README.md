@@ -1,4 +1,7 @@
 ![](https://img.shields.io/npm/v/react-native-progress-steps.svg?style=flat)
+![](https://img.shields.io/npm/dt/react-native-progress-steps.svg)
+[![HitCount](http://hits.dwyl.io/colbymillerdev/react-native-progress-steps.svg)](http://hits.dwyl.io/colbymillerdev/react-native-progress-steps)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 # react-native-progress-steps
 
@@ -125,6 +128,8 @@ return (
 
 ## Contributing
 Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that can be made.
+
+**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
 
 ## Author
 Colby Miller | [https://colbymillerdev.com](https://colbymillerdev.com)
