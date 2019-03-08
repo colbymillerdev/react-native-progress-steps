@@ -100,7 +100,7 @@ return (
 | activeStepIconColor       | Color of the active step icon            | transparent | String |
 | completedStepIconColor    | Color of the completed step icon         | #4bb543     | String |
 | disabledStepIconColor     | Color of the disabled step icon          | #ebebe4     | String |
-| labelFontFamily           | Font family for the step icon label      | rockwell    | String |
+| labelFontFamily           | Font family for the step icon label      | iOS/Android default font    | String |
 | labelColor                | Color of the default label               | lightgray   | String |
 | activeLabelColor          | Color of the active label                | #4bb543     | String |
 | activeStepNumColor        | Color of the active step number          | black       | String |
