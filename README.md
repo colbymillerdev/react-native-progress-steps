@@ -87,7 +87,7 @@ return (
 )
 ```
 
-### Current Step Error and Validation handling
+### Current Step Error and Validation Handling
 The `errors` prop should be used if there's a need for validation and error handling when clicking the next button. If you would like to prevent the next step from being rendered, set the `errors` prop to `true`. By default, it will be `false`.
 
 Example usage of validation check:
