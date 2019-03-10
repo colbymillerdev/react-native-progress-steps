@@ -5,19 +5,21 @@ import PropTypes from 'prop-types';
 import ProgressButtons from './ProgressButtons';
 
 class ProgressStep extends Component {
-  onNextStep = () => {
-    // Changes active index and calls next function passed by parent
-    const activeStep = this.props.activeStep + 1;
-    // Check if function prop has been passed.
-    this.props.onNext && this.props.onNext();
-    this.props.setActiveStep(activeStep);
+  onNextStep = async () => {
+    this.props.onNext && (await this.props.onNext());
+
+    // Return out of method before moving to next step if errors exist.
+    if (this.props.errors) {
+      return;
+    }
+
+    this.props.setActiveStep(this.props.activeStep + 1);
   };
 
   onPreviousStep = () => {
     // Changes active index and calls previous function passed by parent
-    const activeStep = this.props.activeStep - 1;
     this.props.onPrevious && this.props.onPrevious();
-    this.props.setActiveStep(activeStep);
+    this.props.setActiveStep(this.props.activeStep - 1);
   };
 
   onSubmit = () => {
@@ -118,7 +120,8 @@ ProgressStep.propTypes = {
   previousBtnStyle: PropTypes.object,
   previousBtnTextStyle: PropTypes.object,
   previousBtnDisabled: PropTypes.bool,
-  centerContainer: PropTypes.bool
+  centerContainer: PropTypes.bool,
+  errors: PropTypes.bool
 };
 
 ProgressStep.defaultProps = {
@@ -126,7 +129,8 @@ ProgressStep.defaultProps = {
   previousBtnText: 'Previous',
   finishBtnText: 'Submit',
   nextBtnDisabled: false,
-  previousBtnDisabled: false
+  previousBtnDisabled: false,
+  errors: false
 };
 
 export default ProgressStep;

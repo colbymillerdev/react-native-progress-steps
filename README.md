@@ -87,6 +87,46 @@ return (
 )
 ```
 
+### Current Step Error and Validation handling
+The `errors` prop should be used if there's a need for validation and error handling when clicking the next button. If you would like to prevent the next step from being rendered, set the `errors` prop to `true`. By default, it will be `false`.
+
+Example usage of validation check:
+
+```
+state = {
+    isValid: false,
+    errors: false
+};
+
+onNextStep = () => {
+    if (!this.state.isValid) {
+      this.setState({ errors: true });
+    } else {
+      this.setState({ errors: false });
+    }
+};
+
+render() {
+    return (
+      <View style={{ flex: 1 }}>
+        <ProgressSteps>
+          <ProgressStep label="First Step" onNext={this.onNextStep} errors={this.state.errors}>
+            <View style={{ alignItems: 'center' }}>
+              <Text>This is the content within step 1!</Text>
+            </View>
+          </ProgressStep>
+          <ProgressStep label="Second Step">
+            <View style={{ alignItems: 'center' }}>
+              <Text>This is the content within step 2!</Text>
+            </View>
+          </ProgressStep>
+        </ProgressSteps>
+      </View>
+    );
+}
+
+```
+
 ## Documentation
 
 ### Progress Steps Component
@@ -125,6 +165,7 @@ return (
 | previousBtnTextStyle | Style object to provide to the previous button text | { color: '#007aff', fontSize: 18 } | Object |
 | previousBtnDisabled | Value to disable/enable previous button | false | Boolean |
 | centerContainer | Value that decides whether to center content inside ScrollView container | false | Boolean |
+| errors | Used to assist with current step validation. If true, the next step won't be rendered | false | Boolean |
 
 ## Contributing
 Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that can be made.

@@ -43,7 +43,6 @@ class ExampleTwo extends Component {
             label="First"
             onNext={this.onNextStep}
             onPrevious={this.onPrevStep}
-            onSubmit={this.onSubmitSteps}
             centerContainer
             nextBtnTextStyle={buttonTextStyle}
             previousBtnTextStyle={buttonTextStyle}
@@ -56,7 +55,6 @@ class ExampleTwo extends Component {
             label="Second"
             onNext={this.onNextStep}
             onPrevious={this.onPrevStep}
-            onSubmit={this.onSubmitSteps}
             centerContainer
             nextBtnTextStyle={buttonTextStyle}
             previousBtnTextStyle={buttonTextStyle}
@@ -69,7 +67,6 @@ class ExampleTwo extends Component {
             label="Third"
             onNext={this.onNextStep}
             onPrevious={this.onPrevStep}
-            onSubmit={this.onSubmitSteps}
             centerContainer
             nextBtnTextStyle={buttonTextStyle}
             previousBtnTextStyle={buttonTextStyle}
@@ -82,7 +79,6 @@ class ExampleTwo extends Component {
             label="Fourth"
             onNext={this.onNextStep}
             onPrevious={this.onPrevStep}
-            onSubmit={this.onSubmitSteps}
             centerContainer
             nextBtnTextStyle={buttonTextStyle}
             previousBtnTextStyle={buttonTextStyle}
@@ -93,7 +89,6 @@ class ExampleTwo extends Component {
           </ProgressStep>
           <ProgressStep
             label="Fifth"
-            onNext={this.onNextStep}
             onPrevious={this.onPrevStep}
             onSubmit={this.onSubmitSteps}
             centerContainer

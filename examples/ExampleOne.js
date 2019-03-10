@@ -32,7 +32,6 @@ class ExampleOne extends Component {
             label="Payment"
             onNext={this.onPaymentStepComplete}
             onPrevious={this.onPrevStep}
-            onSubmit={this.onSubmitSteps}
             centerContainer
           >
             <View style={{ alignItems: 'center' }}>
@@ -43,7 +42,6 @@ class ExampleOne extends Component {
             label="Shipping Address"
             onNext={this.onNextStep}
             onPrevious={this.onPrevStep}
-            onSubmit={this.onSubmitSteps}
             centerContainer
           >
             <View style={{ alignItems: 'center' }}>
@@ -54,7 +52,6 @@ class ExampleOne extends Component {
             label="Billing Address"
             onNext={this.onNextStep}
             onPrevious={this.onPrevStep}
-            onSubmit={this.onSubmitSteps}
             centerContainer
           >
             <View style={{ alignItems: 'center' }}>
@@ -63,7 +60,6 @@ class ExampleOne extends Component {
           </ProgressStep>
           <ProgressStep
             label="Confirm Order"
-            onNext={this.onNextStep}
             onPrevious={this.onPrevStep}
             onSubmit={this.onSubmitSteps}
             centerContainer
