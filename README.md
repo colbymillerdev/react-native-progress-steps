@@ -164,7 +164,7 @@ render() {
 | previousBtnStyle | Style object to provide to the previous button | { textAlign: 'center', padding: 8 } | Object |
 | previousBtnTextStyle | Style object to provide to the previous button text | { color: '#007aff', fontSize: 18 } | Object |
 | previousBtnDisabled | Value to disable/enable previous button | false | Boolean |
-| centerContainer | Value that decides whether to center content inside ScrollView container | false | Boolean |
+| scrollViewProps | Object to provide props to ScrollView component | {} | Object |
 | errors | Used to assist with current step validation. If true, the next step won't be rendered | false | Boolean |
 
 ## Contributing
