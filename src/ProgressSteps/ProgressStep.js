@@ -92,13 +92,18 @@ class ProgressStep extends Component {
       justifyContent: 'center'
     };
 
+    const prevButtonDefault = this.props.containerPrevButtonsStyle ? this.props.containerPrevButtonsStyle : { position: 'absolute', left: 60, bottom: 40 };
+    const nextButtonDefault = this.props.containerNextButtonsStyle ? this.props.containerNextButtonsStyle : { position: 'absolute', right: 60, bottom: 40 };
+
+    console.log(this.props, 'this.props');
+
     return (
       <View style={{ flex: 1 }}>
         <ScrollView contentContainerStyle={this.props.centerContainer && centerContainer}>
           {this.props.children}
         </ScrollView>
 
-        <ProgressButtons renderNextButton={this.renderNextButton} renderPreviousButton={this.renderPreviousButton} />
+        <ProgressButtons {...this.props} prevButtonDefault={prevButtonDefault} nextButtonDefault={nextButtonDefault} renderNextButton={this.renderNextButton} renderPreviousButton={this.renderPreviousButton} />
       </View>
     );
   }
