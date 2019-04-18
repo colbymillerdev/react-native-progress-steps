@@ -134,6 +134,8 @@ render() {
 |---------------------------|------------------------------------------|-------------|--------|
 | borderWidth               | Width of the progress bar between steps  | 6           | Number |
 | borderStyle               | Type of border for the progress bar      | solid       | String |
+| customStepIcons           | Custom style for StepIcons container     | position: 'relative', justifyContent: 'space-evenly', alignSelf: 'center', flexDirection: 'row', top: 30, marginBottom: 50        | Style  |
+| customContainerStyle      | Main container style                     | flex: 1     | Style  |
 | activeStepIconBorderColor | Outside border color for the active step | #4bb543     | String |
 | progressBarColor          | Color of the default progress bar        | #ebebe4     | String |
 | completedProgressBarColor | Color of the completed progress bar      | #4bb543     | String |
@@ -156,6 +158,9 @@ render() {
 | onPrevious | Function called when the previous step button is pressed | null | Func |
 | onSubmit | Function called when the submit step button is pressed | null | Func |
 | nextBtnText | Text to display inside the next button | Next | String |
+| customProgressButtonsStyle| Progress button container style          | flexDirection: 'row', marginTop: 90     | Style  |
+| containerPrevButtonsStyle | Container View Previous Button | position: 'absolute', left: 60, bottom: 40 | Style |
+| containerNextButtonsStyle | Container View Next Button | position: 'absolute', right: 60, bottom: 40 | Style |
 | previousBtnText | Text to display inside the previous button | Previous | String |
 | finishBtnText | Text to display inside the button on the last step | Submit | String |
 | nextBtnStyle | Style object to provide to the next/finish buttons | { textAlign: 'center', padding: 8 } | Object |
