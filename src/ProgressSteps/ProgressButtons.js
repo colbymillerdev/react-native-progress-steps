@@ -2,9 +2,9 @@ import React from 'react';
 import { View } from 'react-native';
 
 const ProgressButtons = props => (
-  <View style={[{ flexDirection: 'row', marginTop: 90 }, this.props.customProgressButtonsStyle]}>
-    <View style={{ position: 'absolute', left: 60, bottom: 40 }}>{props.renderPreviousButton()}</View>
-    <View style={{ position: 'absolute', right: 60, bottom: 40 }}>{props.renderNextButton()}</View>
+  <View style={[{ flexDirection: 'row', marginTop: 90 }, props.customProgressButtonsStyle]}>
+    <View style={props.prevButtonDefault}>{props.renderPreviousButton()}</View>
+    <View style={props.nextButtonDefault}>{props.renderNextButton()}</View>
   </View>
 );
 
