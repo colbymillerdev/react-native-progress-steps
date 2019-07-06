@@ -8,7 +8,7 @@ import StepIcon from './StepIcon';
 class ProgressSteps extends Component {
   state = {
     stepCount: 0,
-    activeStep: 0
+    activeStep: this.props.activeStep || 0,
   };
 
   componentDidMount() {
