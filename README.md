@@ -1,6 +1,5 @@
 ![](https://img.shields.io/npm/v/react-native-progress-steps.svg?style=flat)
 ![](https://img.shields.io/npm/dt/react-native-progress-steps.svg)
-[![HitCount](http://hits.dwyl.io/colbymillerdev/react-native-progress-steps.svg)](http://hits.dwyl.io/colbymillerdev/react-native-progress-steps)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 # react-native-progress-steps
