@@ -45,7 +45,9 @@ class ProgressSteps extends Component {
 
   // Callback function from ProgressStep that passes current step.
   setActiveStep = step => {
-    this.setState({ activeStep: step });
+    if(step > -1){
+      this.setState({ activeStep: step });
+    }
   };
 
   render() {
