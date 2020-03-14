@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import _ from 'lodash';
-import PropTypes from 'prop-types';
+import { times } from 'lodash';
 
 import StepIcon from './StepIcon';
 
 class ProgressSteps extends Component {
   state = {
     stepCount: 0,
-    activeStep: this.props.activeStep || 0,
+    activeStep: this.props.activeStep || 0
   };
 
   componentDidMount() {
@@ -22,7 +21,7 @@ class ProgressSteps extends Component {
   renderStepIcons = () => {
     let step = [];
 
-    _.times(this.state.stepCount, i => {
+    times(this.state.stepCount, i => {
       step.push(
         <View key={i}>
           <View>
@@ -45,7 +44,7 @@ class ProgressSteps extends Component {
 
   // Callback function from ProgressStep that passes current step.
   setActiveStep = step => {
-    if(step > -1){
+    if (step > -1) {
       this.setState({ activeStep: step });
     }
   };
