@@ -154,7 +154,7 @@ render() {
 | label | Title of the current step to be displayed | null | String |
 | onNext | Function called when the next step button is pressed | null | Func |
 | onRestart | Function called when the restart button is pressed | null | Func |
-| onSkipStep | Function called when the skip step button is pressed | null | Func |
+| onSkip | Function called when the skip step button is pressed | null | Func |
 | onPrevious | Function called when the previous step button is pressed | null | Func |
 | onSubmit | Function called when the submit step button is pressed | null | Func |
 | nextBtnText | Text to display inside the next button | Next | String |

@@ -22,7 +22,7 @@ class ProgressStep extends Component {
     this.props.setActiveStep(this.props.activeStep - 1);
   };
 
-  onSkipStep = () => {
+  onSkip = () => {
     console.debug('ProgressStep: onskip!');
     this.props.onSkip && this.props.onSkip();
     this.props.setActiveStep(this.props.activeStep + 1);
@@ -65,7 +65,7 @@ class ProgressStep extends Component {
     return (
       <TouchableOpacity
         style={btnStyle}
-        onPress={this.props.activeStep === this.props.stepCount - 1 ? this.onSubmit : this.onNextStep}
+        onPress={this.isFinalStep() ? this.onSubmit : this.onNextStep}
         disabled={this.props.nextBtnDisabled}
       >
         <Text style={textStyle}>
@@ -103,6 +103,7 @@ class ProgressStep extends Component {
   };
 
   renderSkipButton = () => {
+
     if(this.isFinalStep()){
       return (null);
     }
@@ -127,7 +128,9 @@ class ProgressStep extends Component {
     if (this.props.skipBtnDisabled) textStyle.push(disabledBtnText);
 
     return (
-        <TouchableOpacity style={btnStyle} onPress={this.onSkipStep} disabled={this.props.onSkipStep}>
+        <TouchableOpacity style={btnStyle}
+                          onPress={this.onSkip}
+                          disabled={this.props.skipBtnDisabled}>
           <Text style={textStyle}>{this.props.activeStep === 0 ? '' : this.props.skipBtnText}</Text>
         </TouchableOpacity>
     );
@@ -154,7 +157,9 @@ class ProgressStep extends Component {
     if (this.props.restartBtnDisabled) textStyle.push(disabledBtnText);
 
     return (
-        <TouchableOpacity style={btnStyle} onPress={this.onRestart} disabled={this.props.restartBtnDisabled}>
+        <TouchableOpacity style={btnStyle}
+                          onPress={this.onRestart}
+                          disabled={this.props.restartBtnDisabled}>
           <Text style={textStyle}>{this.props.activeStep === 0 ? '' : this.props.restartBtnText}</Text>
         </TouchableOpacity>
     );
@@ -162,6 +167,7 @@ class ProgressStep extends Component {
 
   render() {
     const scrollViewProps = this.props.scrollViewProps || {};
+
     return (
       <View style={{ flex: 1 }}>
         <ScrollView {...scrollViewProps}>{this.props.children}</ScrollView>
@@ -180,15 +186,13 @@ ProgressStep.propTypes = {
   label: PropTypes.string,
   onNext: PropTypes.func,
   onPrevious: PropTypes.func,
-  onSkipStep: PropTypes.func,
+  onSkip: PropTypes.func,
   onRestart: PropTypes.func,
   onSubmit: PropTypes.func,
   setActiveStep: PropTypes.func,
   nextBtnText: PropTypes.string,
   previousBtnText: PropTypes.string,
   finishBtnText: PropTypes.string,
-  skipBtnText: PropTypes.string,
-  restartBtnText: PropTypes.string,
   stepCount: PropTypes.number,
   nextBtnStyle: PropTypes.object,
   nextBtnTextStyle: PropTypes.object,
@@ -196,12 +200,6 @@ ProgressStep.propTypes = {
   previousBtnStyle: PropTypes.object,
   previousBtnTextStyle: PropTypes.object,
   previousBtnDisabled: PropTypes.bool,
-  skipBtnStyle: PropTypes.object,
-  skipBtnTextStyle: PropTypes.object,
-  skipBtnDisabled: PropTypes.bool,
-  restartBtnStyle: PropTypes.object,
-  restartBtnTextStyle: PropTypes.object,
-  restartBtnDisabled: PropTypes.bool,
   scrollViewProps: PropTypes.object,
   errors: PropTypes.bool
 };
@@ -214,7 +212,7 @@ ProgressStep.defaultProps = {
   finishBtnText: 'Submit',
   nextBtnDisabled: false,
   restartBtnDisabled: false,
-  skipBtnDisabled: true,
+  skipBtnDisabled: false,
   previousBtnDisabled: false,
   errors: false
 };
