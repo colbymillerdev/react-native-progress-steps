@@ -23,15 +23,21 @@ class ProgressStep extends Component {
   };
 
   onSkipStep = () => {
-    console.debug('onskip!');
+    this.props.onSkip && this.props.onSkip();
+    this.props.setActiveStep(this.props.activeStep + 1);
   }
 
   onRestart = () => {
-    console.debug('onRestart!');
+    this.props.onRestart && this.props.onRestart();
+    this.props.setActiveStep(0);
   }
 
   onSubmit = () => {
     this.props.onSubmit && this.props.onSubmit();
+  };
+
+  isFinalStep = () => {
+    return this.props.activeStep === this.props.stepCount - 1;
   };
 
   renderNextButton = () => {
@@ -61,7 +67,7 @@ class ProgressStep extends Component {
         disabled={this.props.nextBtnDisabled}
       >
         <Text style={textStyle}>
-          {this.props.activeStep === this.props.stepCount - 1 ? this.props.finishBtnText : this.props.nextBtnText}
+          {this.isFinalStep() ? this.props.finishBtnText : this.props.nextBtnText}
         </Text>
       </TouchableOpacity>
     );
@@ -95,6 +101,10 @@ class ProgressStep extends Component {
   };
 
   renderSkipButton = () => {
+    if(this.isFinalStep()){
+      return (null);
+    }
+
     const btnStyle = {
       textAlign: 'center',
       padding: 8,
@@ -115,7 +125,7 @@ class ProgressStep extends Component {
     if (this.props.skipBtnDisabled) textStyle.push(disabledBtnText);
 
     return (
-        <TouchableOpacity style={btnStyle} onPress={this.onSkipStep} disabled={this.props.skipBtnDisabled}>
+        <TouchableOpacity style={btnStyle} onPress={this.onSkipStep} disabled={this.props.onSkipStep}>
           <Text style={textStyle}>{this.props.activeStep === 0 ? '' : this.props.skipBtnText}</Text>
         </TouchableOpacity>
     );
@@ -150,7 +160,6 @@ class ProgressStep extends Component {
 
   render() {
     const scrollViewProps = this.props.scrollViewProps || {};
-
     return (
       <View style={{ flex: 1 }}>
         <ScrollView {...scrollViewProps}>{this.props.children}</ScrollView>
@@ -194,6 +203,8 @@ ProgressStep.defaultProps = {
   restartBtnText: 'Start Over',
   finishBtnText: 'Submit',
   nextBtnDisabled: false,
+  restartBtnDisabled: false,
+  skipBtnDisabled: true,
   previousBtnDisabled: false,
   errors: false
 };
