@@ -23,11 +23,13 @@ class ProgressStep extends Component {
   };
 
   onSkipStep = () => {
+    console.debug('ProgressStep: onskip!');
     this.props.onSkip && this.props.onSkip();
     this.props.setActiveStep(this.props.activeStep + 1);
   }
 
   onRestart = () => {
+    console.debug('ProgressStep: onRestart!');
     this.props.onRestart && this.props.onRestart();
     this.props.setActiveStep(0);
   }
@@ -185,6 +187,8 @@ ProgressStep.propTypes = {
   nextBtnText: PropTypes.string,
   previousBtnText: PropTypes.string,
   finishBtnText: PropTypes.string,
+  skipBtnText: PropTypes.string,
+  restartBtnText: PropTypes.string,
   stepCount: PropTypes.number,
   nextBtnStyle: PropTypes.object,
   nextBtnTextStyle: PropTypes.object,
@@ -192,6 +196,12 @@ ProgressStep.propTypes = {
   previousBtnStyle: PropTypes.object,
   previousBtnTextStyle: PropTypes.object,
   previousBtnDisabled: PropTypes.bool,
+  skipBtnStyle: PropTypes.object,
+  skipBtnTextStyle: PropTypes.object,
+  skipBtnDisabled: PropTypes.bool,
+  restartBtnStyle: PropTypes.object,
+  restartBtnTextStyle: PropTypes.object,
+  restartBtnDisabled: PropTypes.bool,
   scrollViewProps: PropTypes.object,
   errors: PropTypes.bool
 };

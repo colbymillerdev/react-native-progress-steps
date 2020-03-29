@@ -153,10 +153,14 @@ render() {
 |------------------|--------------------------------------------------------------------------|----------|---------|
 | label | Title of the current step to be displayed | null | String |
 | onNext | Function called when the next step button is pressed | null | Func |
+| onRestart | Function called when the restart button is pressed | null | Func |
+| onSkipStep | Function called when the skip step button is pressed | null | Func |
 | onPrevious | Function called when the previous step button is pressed | null | Func |
 | onSubmit | Function called when the submit step button is pressed | null | Func |
 | nextBtnText | Text to display inside the next button | Next | String |
 | previousBtnText | Text to display inside the previous button | Previous | String |
+| restartBtnText | Text to display inside the restart button | Start Over | String |
+| skipBtnText | Text to display inside the skip button | Skip | String |
 | finishBtnText | Text to display inside the button on the last step | Submit | String |
 | nextBtnStyle | Style object to provide to the next/finish buttons | { textAlign: 'center', padding: 8 } | Object |
 | nextBtnTextStyle | Style object to provide to the next/finish button text | { color: '#007aff', fontSize: 18 } | Object |
@@ -164,6 +168,12 @@ render() {
 | previousBtnStyle | Style object to provide to the previous button | { textAlign: 'center', padding: 8 } | Object |
 | previousBtnTextStyle | Style object to provide to the previous button text | { color: '#007aff', fontSize: 18 } | Object |
 | previousBtnDisabled | Value to disable/enable previous button | false | Boolean |
+| skipBtnStyle | Style object to provide to the skip button | { textAlign: 'center', padding: 8 } | Object |
+| skipBtnTextStyle | Style object to provide to the skip button text | { color: '#007aff', fontSize: 18 } | Object |
+| skipBtnDisabled | Value to disable/enable skip button | false | Boolean |
+| restartBtnStyle | Style object to provide to the restart button | { textAlign: 'center', padding: 8 } | Object |
+| restartBtnTextStyle | Style object to provide to the restart button text | { color: '#007aff', fontSize: 18 } | Object |
+| restartBtnDisabled | Value to disable/enable restart button | false | Boolean |
 | scrollViewProps | Object to provide props to ScrollView component | {} | Object |
 | errors | Used to assist with current step validation. If true, the next step won't be rendered | false | Boolean |
 
