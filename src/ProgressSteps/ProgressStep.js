@@ -23,13 +23,11 @@ class ProgressStep extends Component {
   };
 
   onSkip = () => {
-    console.debug('ProgressStep: onskip!');
     this.props.onSkip && this.props.onSkip();
     this.props.setActiveStep(this.props.activeStep + 1);
   }
 
   onRestart = () => {
-    console.debug('ProgressStep: onRestart!');
     this.props.onRestart && this.props.onRestart();
     this.props.setActiveStep(0);
   }
