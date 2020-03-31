@@ -166,6 +166,7 @@ render() {
 | previousBtnDisabled | Value to disable/enable previous button | false | Boolean |
 | scrollViewProps | Object to provide props to ScrollView component | {} | Object |
 | errors | Used to assist with current step validation. If true, the next step won't be rendered | false | Boolean |
+| removeButtonRow | Used to render the progress step without the button row | false | Boolean |
 
 ## Contributing
 Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that can be made.
