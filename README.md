@@ -129,25 +129,26 @@ render() {
 ## Documentation
 
 ### Progress Steps Component
-| Name                      | Description                              | Default     | Type   |
-|---------------------------|------------------------------------------|-------------|--------|
-| borderWidth               | Width of the progress bar between steps  | 6           | Number |
-| borderStyle               | Type of border for the progress bar      | solid       | String |
-| activeStepIconBorderColor | Outside border color for the active step | #4bb543     | String |
-| progressBarColor          | Color of the default progress bar        | #ebebe4     | String |
-| completedProgressBarColor | Color of the completed progress bar      | #4bb543     | String |
-| activeStepIconColor       | Color of the active step icon            | transparent | String |
-| completedStepIconColor    | Color of the completed step icon         | #4bb543     | String |
-| disabledStepIconColor     | Color of the disabled step icon          | #ebebe4     | String |
-| labelFontFamily           | Font family for the step icon label      | iOS/Android default font | String |
-| labelColor                | Color of the default label               | lightgray   | String |
-| activeLabelColor          | Color of the active label                | #4bb543     | String |
-| completedLabelColor       | Color of the completed label             | lightgray   | String |
-| activeStepNumColor        | Color of the active step number          | black       | String |
-| completedStepNumColor     | Color of the completed step number       | black       | String |
-| disabledStepNumColor      | Color of the disabled step number        | white       | String |
-| completedCheckColor       | Color of the completed step checkmark    | white       | String |
-| activeStep                | Manually specify the active step         | 0           | Number |
+| Name                      | Description                               | Default     | Type    |
+|---------------------------|-------------------------------------------|-------------|---------|
+| borderWidth               | Width of the progress bar between steps   | 6           | Number  |
+| borderStyle               | Type of border for the progress bar       | solid       | String  |
+| activeStepIconBorderColor | Outside border color for the active step  | #4bb543     | String  |
+| progressBarColor          | Color of the default progress bar         | #ebebe4     | String  |
+| completedProgressBarColor | Color of the completed progress bar       | #4bb543     | String  |
+| activeStepIconColor       | Color of the active step icon             | transparent | String  |
+| completedStepIconColor    | Color of the completed step icon          | #4bb543     | String  |
+| disabledStepIconColor     | Color of the disabled step icon           | #ebebe4     | String  |
+| labelFontFamily           | Font family for the step icon label       | iOS/Android default font | String |
+| labelColor                | Color of the default label                | lightgray   | String  |
+| activeLabelColor          | Color of the active label                 | #4bb543     | String  |
+| completedLabelColor       | Color of the completed label              | lightgray   | String  |
+| activeStepNumColor        | Color of the active step number           | black       | String  |
+| completedStepNumColor     | Color of the completed step number        | black       | String  |
+| disabledStepNumColor      | Color of the disabled step number         | white       | String  |
+| completedCheckColor       | Color of the completed step checkmark     | white       | String  |
+| activeStep                | Manually specify the active step          | 0           | Number  |
+| isComplete                | Manually set all children to active state | false       | Boolean |
 
 ### Progress Step Component
 | Name | Description | Default | Type |

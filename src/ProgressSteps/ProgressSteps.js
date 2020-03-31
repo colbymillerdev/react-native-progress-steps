@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { times } from 'lodash';
-
+import PropTypes from 'prop-types';
 import StepIcon from './StepIcon';
 
 class ProgressSteps extends Component {
@@ -22,6 +22,14 @@ class ProgressSteps extends Component {
     let step = [];
 
     times(this.state.stepCount, i => {
+      const isCompletedStep = this.props.isComplete 
+        ? true 
+        : i < this.state.activeStep;
+        
+      const isActiveStep = this.props.isComplete 
+        ? false 
+        : i === this.state.activeStep;
+
       step.push(
         <View key={i}>
           <View>
@@ -31,8 +39,8 @@ class ProgressSteps extends Component {
               label={this.props.children[i].props.label}
               isFirstStep={i === 0}
               isLastStep={i === this.state.stepCount - 1}
-              isCompletedStep={i < this.state.activeStep}
-              isActiveStep={i === this.state.activeStep}
+              isCompletedStep={isCompletedStep}
+              isActiveStep={isActiveStep}
             />
           </View>
         </View>
@@ -75,5 +83,13 @@ class ProgressSteps extends Component {
     );
   }
 }
+
+ProgressSteps.propTypes = {
+  isComplete: PropTypes.bool
+};
+
+ProgressSteps.defaultProps = {
+  isComplete: false
+};
 
 export default ProgressSteps;
