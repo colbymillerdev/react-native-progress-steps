@@ -98,6 +98,51 @@ class StepIcon extends Component {
           color: this.props.completedStepNumColor
         }
       };
+    } else if (this.props.isFailedStep) {
+      styles = {
+        circleStyle: {
+          width: 36,
+          height: 36,
+          borderRadius: 18,
+          backgroundColor: this.props.failedStepIconColor
+        },
+        circleText: {
+          alignSelf: 'center',
+          top: 18 / 2
+        },
+        labelText: {
+          textAlign: 'center',
+          flexWrap: 'wrap',
+          width: 100,
+          paddingTop: 2,
+          fontFamily: this.props.labelFontFamily,
+          color: this.props.failedLabelColor,
+          marginTop: 4
+        },
+        leftBar: {
+          position: 'absolute',
+          top: 36 / 2,
+          left: 0,
+          right: 36 + 8,
+          borderTopStyle: this.props.borderStyle,
+          borderTopWidth: this.props.borderWidth,
+          borderTopColor: this.props.failedProgressBarColor,
+          marginRight: 36 / 2 + 4
+        },
+        rightBar: {
+          position: 'absolute',
+          top: 36 / 2,
+          right: 0,
+          left: 36 + 8,
+          borderTopStyle: this.props.borderStyle,
+          borderTopWidth: this.props.borderWidth,
+          borderTopColor: this.props.failedProgressBarColor,
+          marginLeft: 36 / 2 + 4
+        },
+        stepNum: {
+          color: this.props.failedStepNumColor
+        }
+      };
     } else {
       styles = {
         circleStyle: {
@@ -151,6 +196,8 @@ class StepIcon extends Component {
           <Text style={styles.circleText}>
             {this.props.isCompletedStep ? (
               <Text style={{ color: this.props.completedCheckColor }}>&#10003;</Text>
+            ) : this.props.isFailedStep ? (
+              <Text style={{ color: this.props.failedCrossColor }}>&#10006;</Text>
             ) : (
               <Text style={styles.stepNum}>{this.props.stepNum}</Text>
             )}
@@ -177,21 +224,26 @@ StepIcon.propTypes = {
 
   progressBarColor: PropTypes.string,
   completedProgressBarColor: PropTypes.string,
+  failedProgressBarColor: PropTypes.string,
 
   activeStepIconColor: PropTypes.string,
   disabledStepIconColor: PropTypes.string,
   completedStepIconColor: PropTypes.string,
+  failedStepIconColor: PropTypes.string,
 
   labelFontFamily: PropTypes.string,
   labelColor: PropTypes.string,
   activeLabelColor: PropTypes.string,
   completedLabelColor: PropTypes.string,
+  failedLabelColor: PropTypes.string,
 
   activeStepNumColor: PropTypes.string,
   completedStepNumColor: PropTypes.string,
   disabledStepNumColor: PropTypes.string,
+  failedStepNumColor: PropTypes.string,
 
-  completedCheckColor: PropTypes.string
+  completedCheckColor: PropTypes.string,
+  failedCrossColor: PropTypes.string,
 };
 
 StepIcon.defaultProps = {
@@ -201,20 +253,25 @@ StepIcon.defaultProps = {
 
   progressBarColor: '#ebebe4',
   completedProgressBarColor: '#4BB543',
+  failedProgressBarColor: '#ED696D',
 
   activeStepIconColor: 'transparent',
   completedStepIconColor: '#4BB543',
   disabledStepIconColor: '#ebebe4',
+  failedStepIconColor: '#ED696D',
 
   labelColor: 'lightgray',
   activeLabelColor: '#4BB543',
   completedLabelColor: 'lightgray',
+  failedLabelColor: '#ED696D',
 
   activeStepNumColor: 'black',
   completedStepNumColor: 'black',
   disabledStepNumColor: 'white',
+  failedStepNumColor: 'black',
 
-  completedCheckColor: 'white'
+  completedCheckColor: 'white',
+  failedCrossColor: 'white',
 };
 
 export default StepIcon;
