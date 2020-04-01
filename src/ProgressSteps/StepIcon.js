@@ -59,7 +59,9 @@ class StepIcon extends Component {
           width: 36,
           height: 36,
           borderRadius: 18,
-          backgroundColor: this.props.completedStepIconColor
+          backgroundColor: this.props.completedStepIconColor,
+          borderColor: this.props.completedStepIconColor,
+          borderWidth: 5,
         },
         circleText: {
           alignSelf: 'center',
