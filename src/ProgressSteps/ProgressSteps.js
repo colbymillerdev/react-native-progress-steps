@@ -6,8 +6,7 @@ import StepIcon from './StepIcon';
 
 class ProgressSteps extends Component {
   state = {
-    stepCount: 0,
-    activeStep: this.props.activeStep || 0
+    stepCount: 0
   };
 
   componentDidMount() {
@@ -24,11 +23,11 @@ class ProgressSteps extends Component {
     times(this.state.stepCount, i => {
       const isCompletedStep = this.props.isComplete 
         ? true 
-        : i < this.state.activeStep;
+        : i < this.props.activeStep;
         
       const isActiveStep = this.props.isComplete 
         ? false 
-        : i === this.state.activeStep;
+        : i === this.props.activeStep;
 
       step.push(
         <View key={i}>
@@ -73,9 +72,9 @@ class ProgressSteps extends Component {
       <View style={{ flex: 1 }}>
         <View style={styles.stepIcons}>{this.renderStepIcons()}</View>
         <View style={{ flex: 1 }}>
-          {React.cloneElement(this.props.children[this.state.activeStep], {
+          {React.cloneElement(this.props.children[this.props.activeStep], {
             setActiveStep: this.setActiveStep,
-            activeStep: this.state.activeStep,
+            activeStep: this.props.activeStep,
             stepCount: this.state.stepCount
           })}
         </View>
@@ -85,11 +84,13 @@ class ProgressSteps extends Component {
 }
 
 ProgressSteps.propTypes = {
-  isComplete: PropTypes.bool
+  isComplete: PropTypes.bool,
+  activeStep: PropTypes.number
 };
 
 ProgressSteps.defaultProps = {
-  isComplete: false
+  isComplete: false,
+  activeStep: 0
 };
 
 export default ProgressSteps;
