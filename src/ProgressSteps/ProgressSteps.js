@@ -21,7 +21,7 @@ class ProgressSteps extends Component {
     let step = [];
 
     times(this.state.stepCount, i => {
-      const isFailedStep = this.props.failedSteps.incudes(i);
+      const isFailedStep = this.props.failedSteps.includes(i);
 
       const isCompletedStep = this.props.isComplete && !isFailedStep
         ? true 
