@@ -21,13 +21,11 @@ class ProgressSteps extends Component {
     let step = [];
 
     times(this.state.stepCount, i => {
-      const isFailedStep = this.props.failedSteps.includes(i);
-
-      const isCompletedStep = this.props.isComplete && !isFailedStep
+      const isCompletedStep = this.props.isComplete && !this.props.hasFailures
         ? true 
         : i < this.props.activeStep;
         
-      const isActiveStep = this.props.isComplete 
+      const isActiveStep = this.props.isComplete || this.props.hasFailures
         ? false 
         : i === this.props.activeStep;
 
@@ -42,7 +40,7 @@ class ProgressSteps extends Component {
               isLastStep={i === this.state.stepCount - 1}
               isCompletedStep={isCompletedStep}
               isActiveStep={isActiveStep}
-              isFailedStep={isFailedStep}
+              isFailedStep={this.props.hasFailures}
             />
           </View>
         </View>
@@ -89,13 +87,13 @@ class ProgressSteps extends Component {
 ProgressSteps.propTypes = {
   isComplete: PropTypes.bool,
   activeStep: PropTypes.number,
-  failedSteps: PropTypes.array
+  hasFailures: PropTypes.bool
 };
 
 ProgressSteps.defaultProps = {
   isComplete: false,
   activeStep: 0,
-  failedSteps: []
+  hasFailures: false
 };
 
 export default ProgressSteps;

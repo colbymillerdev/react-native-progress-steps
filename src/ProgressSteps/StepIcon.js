@@ -263,7 +263,7 @@ StepIcon.defaultProps = {
   labelColor: 'lightgray',
   activeLabelColor: '#4BB543',
   completedLabelColor: 'lightgray',
-  failedLabelColor: '#ED696D',
+  failedLabelColor: 'lightgray',
 
   activeStepNumColor: 'black',
   completedStepNumColor: 'black',
