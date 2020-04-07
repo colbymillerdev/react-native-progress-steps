@@ -14,7 +14,7 @@ class ProgressSteps extends Component {
     this.setState({ stepCount: React.Children.count(this.props.children) });
   }
 
-  componentWillUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
     if(prevProps.activeStep !== this.props.activeStep){
       this.setActiveStep(this.props.activeStep);
     }
