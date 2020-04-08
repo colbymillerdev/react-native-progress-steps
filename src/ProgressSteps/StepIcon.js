@@ -71,7 +71,7 @@ class StepIcon extends Component {
           width: 100,
           paddingTop: 2,
           fontFamily: this.props.labelFontFamily,
-          color: this.props.labelColor,
+          color: this.props.completedLabelColor,
           marginTop: 4
         },
         leftBar: {
@@ -185,6 +185,7 @@ StepIcon.propTypes = {
   labelFontFamily: PropTypes.string,
   labelColor: PropTypes.string,
   activeLabelColor: PropTypes.string,
+  completedLabelColor: PropTypes.string,
 
   activeStepNumColor: PropTypes.string,
   completedStepNumColor: PropTypes.string,
@@ -207,6 +208,7 @@ StepIcon.defaultProps = {
 
   labelColor: 'lightgray',
   activeLabelColor: '#4BB543',
+  completedLabelColor: 'lightgray',
 
   activeStepNumColor: 'black',
   completedStepNumColor: 'black',
