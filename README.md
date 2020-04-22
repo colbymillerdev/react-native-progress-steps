@@ -149,6 +149,8 @@ render() {
 | completedCheckColor       | Color of the completed step checkmark    | white       | String  |
 | activeStep                | Manually specify the active step         | 0           | Number  |
 | isComplete                | Set all Steps to active state            | false       | Boolean |
+| topOffset                 | Set progress bar top offset              | 30          | Number  |
+| marginBottom              | Set progress bar bottom margin           | 50          | Number  |
 
 ### Progress Step Component
 | Name | Description | Default | Type |
