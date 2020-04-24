@@ -167,7 +167,6 @@ class StepIcon extends Component {
 StepIcon.propTypes = {
   stepCount: PropTypes.number.isRequired,
   stepNum: PropTypes.number.isRequired,
-  label: PropTypes.string.isRequired,
   isFirstStep: PropTypes.bool.isRequired,
   isLastStep: PropTypes.bool.isRequired,
 
