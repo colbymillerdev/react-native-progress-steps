@@ -28,7 +28,6 @@ class ProgressStep extends Component {
 
   renderNextButton = () => {
     const btnStyle = {
-      textAlign: 'center',
       padding: 8,
       ...this.props.nextBtnStyle
     };
@@ -61,7 +60,6 @@ class ProgressStep extends Component {
 
   renderPreviousButton = () => {
     const btnStyle = {
-      textAlign: 'center',
       padding: 8,
       ...this.props.previousBtnStyle
     };
