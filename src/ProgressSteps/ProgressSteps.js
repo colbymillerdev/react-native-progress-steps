@@ -71,8 +71,8 @@ class ProgressSteps extends Component {
         justifyContent: 'space-evenly',
         alignSelf: 'center',
         flexDirection: 'row',
-        top: 30,
-        marginBottom: 50,
+        top: this.props.topOffset,
+        marginBottom: this.props.marginBottom,
       },
     };
 
@@ -94,11 +94,15 @@ class ProgressSteps extends Component {
 ProgressSteps.propTypes = {
   isComplete: PropTypes.bool,
   activeStep: PropTypes.number,
+  topOffset: PropTypes.number,
+  marginBottom: PropTypes.number,
 };
 
 ProgressSteps.defaultProps = {
   isComplete: false,
   activeStep: 0,
+  topOffset: 30,
+  marginBottom: 50,
 };
 
 export default ProgressSteps;
