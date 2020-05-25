@@ -169,6 +169,8 @@ render() {
 | previousBtnTextStyle | Style object to provide to the previous button text | { color: '#007aff', fontSize: 18 } | Object |
 | previousBtnDisabled | Value to disable/enable previous button | false | Boolean |
 | scrollViewProps | Object to provide props to ScrollView component | {} | Object |
+| scrollable | The content of the Progress Step should be scrollable | true | Boolean |
+| viewProps | Object to provide props to view component if scrollable is false | {} | Object |
 | errors | Used to assist with current step validation. If true, the next step won't be rendered | false | Boolean |
 | removeBtnRow | Used to render the progress step without the button row | false | Boolean |
 
