@@ -25,9 +25,10 @@ class StepIcon extends Component {
           textAlign: 'center',
           flexWrap: 'wrap',
           width: 100,
-          paddingTop: 2,
+          paddingTop: 4,
           fontFamily: this.props.labelFontFamily,
           color: this.props.activeLabelColor,
+          fontSize: this.props.activeLabelFontSize || this.props.labelFontSize,
         },
         leftBar: {
           position: 'absolute',
@@ -69,10 +70,11 @@ class StepIcon extends Component {
           textAlign: 'center',
           flexWrap: 'wrap',
           width: 100,
-          paddingTop: 2,
+          paddingTop: 4,
           fontFamily: this.props.labelFontFamily,
           color: this.props.completedLabelColor,
           marginTop: 4,
+          fontSize: this.props.labelFontSize,
         },
         leftBar: {
           position: 'absolute',
@@ -114,10 +116,11 @@ class StepIcon extends Component {
           textAlign: 'center',
           flexWrap: 'wrap',
           width: 100,
-          paddingTop: 2,
+          paddingTop: 4,
           fontFamily: this.props.labelFontFamily,
           color: this.props.labelColor,
           marginTop: 4,
+          fontSize: this.props.labelFontSize,
         },
         leftBar: {
           position: 'absolute',
@@ -183,7 +186,9 @@ StepIcon.propTypes = {
 
   labelFontFamily: PropTypes.string,
   labelColor: PropTypes.string,
+  labelFontSize: PropTypes.number,
   activeLabelColor: PropTypes.string,
+  activeLabelFontSize: PropTypes.number,
   completedLabelColor: PropTypes.string,
 
   activeStepNumColor: PropTypes.string,
@@ -206,6 +211,7 @@ StepIcon.defaultProps = {
   disabledStepIconColor: '#ebebe4',
 
   labelColor: 'lightgray',
+  labelFontSize: 14,
   activeLabelColor: '#4BB543',
   completedLabelColor: 'lightgray',
 

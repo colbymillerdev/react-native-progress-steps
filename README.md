@@ -141,7 +141,9 @@ render() {
 | disabledStepIconColor     | Color of the disabled step icon          | #ebebe4     | String  |
 | labelFontFamily           | Font family for the step icon label      | iOS/Android default font | String |
 | labelColor                | Color of the default label               | lightgray   | String  |
+| labelFontSize             | Font size for the step icon label        | 14          | Number  |
 | activeLabelColor          | Color of the active label                | #4bb543     | String  |
+| activeLabelFontSize       | Optional font size for the active step icon label      | null     | Number  |
 | completedLabelColor       | Color of the completed label             | lightgray   | String  |
 | activeStepNumColor        | Color of the active step number          | black       | String  |
 | completedStepNumColor     | Color of the completed step number       | black       | String  |
