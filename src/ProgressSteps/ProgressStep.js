@@ -16,9 +16,9 @@ class ProgressStep extends Component {
     this.props.setActiveStep(this.props.activeStep + 1);
   };
 
-  onPreviousStep = () => {
+  onPreviousStep = async () => {
     // Changes active index and calls previous function passed by parent
-    this.props.onPrevious && this.props.onPrevious();
+    this.props.onPrevious && (await this.props.onPrevious());
     this.props.setActiveStep(this.props.activeStep - 1);
   };
 
