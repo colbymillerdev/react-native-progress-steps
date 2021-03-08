@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
-import { times } from 'lodash';
-import PropTypes from 'prop-types';
-import StepIcon from './StepIcon';
+import React, { Component } from "react";
+import { View } from "react-native";
+import PropTypes from "prop-types";
+import StepIcon from "./StepIcon";
 
 class ProgressSteps extends Component {
   state = {
@@ -25,31 +24,31 @@ class ProgressSteps extends Component {
   }
 
   renderStepIcons = () => {
-    let step = [];
-
-    times(this.state.stepCount, (i) => {
-      const isCompletedStep = this.props.isComplete ? true : i < this.state.activeStep;
-
-      const isActiveStep = this.props.isComplete ? false : i === this.state.activeStep;
-
-      step.push(
-        <View key={i}>
-          <View>
-            <StepIcon
-              {...this.getChildProps()}
-              stepNum={i + 1}
-              label={this.props.children[i].props.label}
-              isFirstStep={i === 0}
-              isLastStep={i === this.state.stepCount - 1}
-              isCompletedStep={isCompletedStep}
-              isActiveStep={isActiveStep}
-            />
+    return this.props.children
+      .filter((children) => !!children)
+      .map((children, i) => {
+        const isCompletedStep = this.props.isComplete
+          ? true
+          : i < this.state.activeStep;
+        const isActiveStep = this.props.isComplete
+          ? false
+          : i === this.state.activeStep;
+        return (
+          <View key={i}>
+            <View>
+              <StepIcon
+                {...this.getChildProps()}
+                stepNum={i + 1}
+                label={children.props.label}
+                isFirstStep={i === 0}
+                isLastStep={i === this.state.stepCount - 1}
+                isCompletedStep={isCompletedStep}
+                isActiveStep={isActiveStep}
+              />
+            </View>
           </View>
-        </View>
-      );
-    });
-
-    return step;
+        );
+      });
   };
 
   // Callback function from ProgressStep that passes current step.
@@ -67,10 +66,10 @@ class ProgressSteps extends Component {
   render() {
     const styles = {
       stepIcons: {
-        position: 'relative',
-        justifyContent: 'space-evenly',
-        alignSelf: 'center',
-        flexDirection: 'row',
+        position: "relative",
+        justifyContent: "space-evenly",
+        alignSelf: "center",
+        flexDirection: "row",
         top: this.props.topOffset,
         marginBottom: this.props.marginBottom,
       },
