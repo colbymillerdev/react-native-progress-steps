@@ -36,7 +36,7 @@ class ProgressSteps extends Component {
 
   renderStepIcons = () => {
     const children = this.children;
-    return children.map((children, i) => {
+    return children.map((child, i) => {
       const isCompletedStep = this.props.isComplete
         ? true
         : i < this.state.activeStep;
@@ -51,7 +51,7 @@ class ProgressSteps extends Component {
             <StepIcon
               {...this.getChildProps()}
               stepNum={i + 1}
-              label={children.props.label}
+              label={child.props.label}
               isFirstStep={i === 0}
               isLastStep={isLastStep}
               isCompletedStep={isCompletedStep}
