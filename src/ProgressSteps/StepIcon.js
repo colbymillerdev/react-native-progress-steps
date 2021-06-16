@@ -3,6 +3,9 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
 class StepIcon extends Component {
+  goToStep = () => {
+    this.props.setActiveStep(this.props.stepNum - 1)
+  }
   render() {
     let styles;
 
@@ -149,7 +152,9 @@ class StepIcon extends Component {
     }
 
     return (
-      <View style={{ flexDirection: 'column', alignItems: 'center' }}>
+      <TouchableOpacity 
+          style={{ flexDirection: 'column', alignItems: 'center' }}
+          onPress={this.goToStep}>
         <View style={styles.circleStyle}>
           <Text style={styles.circleText}>
             {this.props.isCompletedStep ? (
@@ -158,11 +163,12 @@ class StepIcon extends Component {
               <Text style={styles.stepNum}>{this.props.stepNum}</Text>
             )}
           </Text>
+
         </View>
         <Text style={styles.labelText}>{this.props.label}</Text>
         {!this.props.isFirstStep && <View style={styles.leftBar} />}
         {!this.props.isLastStep && <View style={styles.rightBar} />}
-      </View>
+      </TouchableOpacity>
     );
   }
 }
