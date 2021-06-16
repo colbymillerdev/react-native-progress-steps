@@ -43,6 +43,7 @@ class ProgressSteps extends Component {
               isLastStep={i === this.state.stepCount - 1}
               isCompletedStep={isCompletedStep}
               isActiveStep={isActiveStep}
+              setActiveStep={this.setActiveStep}
             />
           </View>
         </View>
