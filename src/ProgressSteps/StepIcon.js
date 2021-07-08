@@ -32,6 +32,7 @@ class StepIcon extends Component {
         },
         leftBar: {
           position: 'absolute',
+          zIndex: -1,
           top: 40 / 2.22,
           left: 0,
           right: 40 + 8,
@@ -42,6 +43,7 @@ class StepIcon extends Component {
         },
         rightBar: {
           position: 'absolute',
+          zIndex: -1,
           top: 40 / 2.22,
           right: 0,
           left: 40 + 8,
@@ -78,6 +80,7 @@ class StepIcon extends Component {
         },
         leftBar: {
           position: 'absolute',
+          zIndex: -1,
           top: 36 / 2,
           left: 0,
           right: 36 + 8,
@@ -88,6 +91,7 @@ class StepIcon extends Component {
         },
         rightBar: {
           position: 'absolute',
+          zIndex: -1,
           top: 36 / 2,
           right: 0,
           left: 36 + 8,
@@ -124,6 +128,7 @@ class StepIcon extends Component {
         },
         leftBar: {
           position: 'absolute',
+          zIndex: -1,
           top: 36 / 2,
           left: 0,
           right: 36 + 8,
@@ -134,6 +139,7 @@ class StepIcon extends Component {
         },
         rightBar: {
           position: 'absolute',
+          zIndex: -1,
           top: 36 / 2,
           right: 0,
           left: 36 + 8,
