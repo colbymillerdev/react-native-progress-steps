@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
-import { times } from 'lodash';
-import PropTypes from 'prop-types';
-import StepIcon from './StepIcon';
+import React, { Component } from "react";
+import { View } from "react-native";
+import { times } from "lodash";
+import PropTypes from "prop-types";
+import StepIcon from "./StepIcon";
+import ProgressContext from "./ProgressContext";
 
 class ProgressSteps extends Component {
   state = {
@@ -28,9 +29,13 @@ class ProgressSteps extends Component {
     let step = [];
 
     times(this.state.stepCount, (i) => {
-      const isCompletedStep = this.props.isComplete ? true : i < this.state.activeStep;
+      const isCompletedStep = this.props.isComplete
+        ? true
+        : i < this.state.activeStep;
 
-      const isActiveStep = this.props.isComplete ? false : i === this.state.activeStep;
+      const isActiveStep = this.props.isComplete
+        ? false
+        : i === this.state.activeStep;
 
       step.push(
         <View key={i}>
@@ -67,26 +72,30 @@ class ProgressSteps extends Component {
   render() {
     const styles = {
       stepIcons: {
-        position: 'relative',
-        justifyContent: 'space-evenly',
-        alignSelf: 'center',
-        flexDirection: 'row',
+        position: "relative",
+        justifyContent: "space-evenly",
+        alignSelf: "center",
+        flexDirection: "row",
         top: this.props.topOffset,
         marginBottom: this.props.marginBottom,
       },
     };
 
+    const progressValue = {
+      setActiveStep: this.setActiveStep,
+      activeStep: this.state.activeStep,
+      stepCount: this.state.stepCount,
+    }
+
     return (
-      <View style={{ flex: 1 }}>
-        <View style={styles.stepIcons}>{this.renderStepIcons()}</View>
+      <ProgressContext.Provider value={progressValue}>
         <View style={{ flex: 1 }}>
-          {React.cloneElement(this.props.children[this.state.activeStep], {
-            setActiveStep: this.setActiveStep,
-            activeStep: this.state.activeStep,
-            stepCount: this.state.stepCount,
-          })}
+          <View style={styles.stepIcons}>{this.renderStepIcons()}</View>
+          <View style={{ flex: 1 }}>
+            {React.cloneElement(this.props.children[this.state.activeStep])}
+          </View>
         </View>
-      </View>
+      </ProgressContext.Provider>
     );
   }
 }
@@ -104,5 +113,7 @@ ProgressSteps.defaultProps = {
   topOffset: 30,
   marginBottom: 50,
 };
+
+ProgressSteps.contextType = ProgressContext;
 
 export default ProgressSteps;
