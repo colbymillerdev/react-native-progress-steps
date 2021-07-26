@@ -16,6 +16,7 @@ class StepIcon extends Component {
           borderColor: this.props.activeStepIconBorderColor,
           borderWidth: 5,
           bottom: 2,
+          elevation: 5,
         },
         circleText: {
           alignSelf: 'center',
