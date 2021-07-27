@@ -11,11 +11,12 @@ class StepIcon extends Component {
         circleStyle: {
           width: 40,
           height: 40,
-          borderRadius: 20,
+          borderRadius: this.props.activeStepIconBorderRadius,
           backgroundColor: this.props.activeStepIconColor,
           borderColor: this.props.activeStepIconBorderColor,
           borderWidth: 5,
           bottom: 2,
+          elevation: 5,
         },
         circleText: {
           alignSelf: 'center',
@@ -59,7 +60,7 @@ class StepIcon extends Component {
         circleStyle: {
           width: 36,
           height: 36,
-          borderRadius: 18,
+          borderRadius: this.props.completedStepIconBorderRadius,
           backgroundColor: this.props.completedStepIconColor,
         },
         circleText: {
@@ -105,7 +106,7 @@ class StepIcon extends Component {
         circleStyle: {
           width: 36,
           height: 36,
-          borderRadius: 18,
+          borderRadius: this.props.disabledStepIconBorderRadius,
           backgroundColor: this.props.disabledStepIconColor,
         },
         circleText: {
@@ -183,6 +184,9 @@ StepIcon.propTypes = {
   activeStepIconColor: PropTypes.string,
   disabledStepIconColor: PropTypes.string,
   completedStepIconColor: PropTypes.string,
+  activeStepIconBorderRadius: PropTypes.number,
+  completedStepIconBorderRadius: PropTypes.number,
+  disabledStepIconBorderRadius: PropTypes.number,
 
   labelFontFamily: PropTypes.string,
   labelColor: PropTypes.string,
@@ -218,6 +222,10 @@ StepIcon.defaultProps = {
   activeStepNumColor: 'black',
   completedStepNumColor: 'black',
   disabledStepNumColor: 'white',
+  activeStepIconBorderRadius: 20,
+  completedStepIconBorderRadius: 18,
+  disabledStepIconBorderRadius: 18,
+
 
   completedCheckColor: 'white',
 };
