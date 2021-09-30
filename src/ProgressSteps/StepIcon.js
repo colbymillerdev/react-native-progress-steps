@@ -13,14 +13,14 @@ class StepIcon extends Component {
           width: 40,
           height: 40,
           borderRadius: 20,
-          backgroundColor: this.props.activeStepIconColor,
-          borderColor: this.props.activeStepIconBorderColor,
-          borderWidth: 5,
+          backgroundColor: this.props.activeStepBackgroundColor,
+          borderColor: this.props.activeStepBorderColor,
+          borderWidth: 2,
           bottom: 2,
         },
         circleText: {
           alignSelf: 'center',
-          top: this.props.useIcon ? (20 / 3)-2 : (20 / 3) ,
+          top: this.props.useIcon ? (20 / 3) : (20 / 3) ,
         },
         labelText: {
           textAlign: 'center',
@@ -65,7 +65,7 @@ class StepIcon extends Component {
           width: 36,
           height: 36,
           borderRadius: 18,
-          backgroundColor: this.props.completedStepIconColor,
+          backgroundColor: this.props.completedStepBackgroundColor,
         },
         circleText: {
           alignSelf: 'center',
@@ -116,7 +116,7 @@ class StepIcon extends Component {
           width: 36,
           height: 36,
           borderRadius: 18,
-          backgroundColor: this.props.disabledStepIconColor,
+          backgroundColor: this.props.disabledStepBackgroundColor,
         },
         circleText: {
           alignSelf: 'center',
@@ -208,14 +208,14 @@ StepIcon.propTypes = {
 
   borderWidth: PropTypes.number,
   borderStyle: PropTypes.string,
-  activeStepIconBorderColor: PropTypes.string,
+  activeStepBorderColor: PropTypes.string,
 
   progressBarColor: PropTypes.string,
   completedProgressBarColor: PropTypes.string,
 
-  activeStepIconColor: PropTypes.string,
-  disabledStepIconColor: PropTypes.string,
-  completedStepIconColor: PropTypes.string,
+  activeStepBackgroundColor: PropTypes.string,
+  disabledStepBackgroundColor: PropTypes.string,
+  completedStepBackgroundColor: PropTypes.string,
 
   labelFontFamily: PropTypes.string,
   labelColor: PropTypes.string,
@@ -241,14 +241,14 @@ StepIcon.propTypes = {
 StepIcon.defaultProps = {
   borderWidth: 3,
   borderStyle: 'solid',
-  activeStepIconBorderColor: '#4BB543',
+  activeStepBorderColor: '#4BB543',
 
   progressBarColor: '#ebebe4',
   completedProgressBarColor: '#4BB543',
 
-  activeStepIconColor: 'transparent',
-  completedStepIconColor: '#4BB543',
-  disabledStepIconColor: '#ebebe4',
+  activeStepBackgroundColor: 'transparent',
+  completedStepBackgroundColor: '#4BB543',
+  disabledStepBackgroundColor: '#ebebe4',
 
   labelColor: 'lightgray',
   labelFontSize: 14,

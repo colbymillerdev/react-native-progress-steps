@@ -43,6 +43,15 @@ class ProgressSteps extends Component {
               isLastStep={i === this.state.stepCount - 1}
               isCompletedStep={isCompletedStep}
               isActiveStep={isActiveStep}
+
+              activeStepBackgroundColor={this.props.children[i].props.activeStepBackgroundColor}
+              disabledStepBackgroundColor={this.props.children[i].props.disabledStepBackgroundColor}
+              completedStepBackgroundColor={this.props.children[i].props.completedStepBackgroundColor}
+
+              activeStepBorderColor={this.props.children[i].props.activeStepBorderColor}
+              activeLabelColor={this.props.children[i].props.activeLabelColor}
+              completedProgressBarColor={this.props.children[i].props.completedProgressBarColor}
+
               useIcon={this.props.children[i].props.useIcon}
               iconName={this.props.children[i].props.iconName}
               iconStyles={this.props.children[i].props.iconStyles}
