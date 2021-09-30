@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class StepIcon extends Component {
   render() {
@@ -151,13 +152,26 @@ class StepIcon extends Component {
     return (
       <View style={{ flexDirection: 'column', alignItems: 'center' }}>
         <View style={styles.circleStyle}>
+          
+          {!this.props.showIcon ? (
           <Text style={styles.circleText}>
             {this.props.isCompletedStep ? (
               <Text style={{ color: this.props.completedCheckColor }}>&#10003;</Text>
             ) : (
               <Text style={styles.stepNum}>{this.props.stepNum}</Text>
             )}
-          </Text>
+          </Text>)
+           :
+            (
+            <Text style={styles.circleText}>
+            {this.props.isCompletedStep ? (
+              <Text style={{ color: this.props.completedCheckColor }}>&#10003;</Text>
+            ) : (
+              <Icon style={styles.stepNum} name={this.props.iconName}></Icon>
+            )}
+            </Text>)
+            }
+
         </View>
         <Text style={styles.labelText}>{this.props.label}</Text>
         {!this.props.isFirstStep && <View style={styles.leftBar} />}
