@@ -43,6 +43,10 @@ class ProgressSteps extends Component {
               isLastStep={i === this.state.stepCount - 1}
               isCompletedStep={isCompletedStep}
               isActiveStep={isActiveStep}
+              useIcon={this.props.children[i].props.useIcon}
+              iconName={this.props.children[i].props.iconName}
+              iconStyles={this.props.children[i].props.iconStyles}
+              completedStepIconName={this.props.children[i].props.completedStepIconName}
             />
           </View>
         </View>
@@ -103,6 +107,8 @@ ProgressSteps.defaultProps = {
   activeStep: 0,
   topOffset: 30,
   marginBottom: 50,
+
+  
 };
 
 export default ProgressSteps;

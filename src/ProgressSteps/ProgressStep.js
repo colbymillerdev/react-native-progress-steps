@@ -129,7 +129,12 @@ ProgressStep.propTypes = {
   viewProps: PropTypes.object,
   errors: PropTypes.bool,
   removeBtnRow: PropTypes.bool,
-  scrollable: PropTypes.bool
+  scrollable: PropTypes.bool,
+  useIcon: PropTypes.bool,
+  iconName: PropTypes.string,
+  iconStyles:  PropTypes.object,
+
+  completedStepIconName: PropTypes.string,
 };
 
 ProgressStep.defaultProps = {
@@ -140,7 +145,10 @@ ProgressStep.defaultProps = {
   previousBtnDisabled: false,
   errors: false,
   removeBtnRow: false,
-  scrollable: true
+  scrollable: true,
+  useIcon: false,
+  iconName: '',
+  completedStepIconName: '',
 };
 
 export default ProgressStep;
