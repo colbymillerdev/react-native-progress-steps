@@ -130,9 +130,20 @@ ProgressStep.propTypes = {
   errors: PropTypes.bool,
   removeBtnRow: PropTypes.bool,
   scrollable: PropTypes.bool,
+
+  activeStepBackgroundColor: PropTypes.string,
+  disabledStepBackgroundColor: PropTypes.string,
+  completedStepBackgroundColor: PropTypes.string,
+
+  activeLabelColor:PropTypes.string,
+  activeStepBorderColor: PropTypes.string,
+  completedProgressBarColor: PropTypes.string,
+
+
   useIcon: PropTypes.bool,
   iconName: PropTypes.string,
   iconStyles:  PropTypes.object,
+
 
   completedStepIconName: PropTypes.string,
 };
