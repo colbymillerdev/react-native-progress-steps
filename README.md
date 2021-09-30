@@ -58,6 +58,27 @@ Simply place a `<ProgressStep />` tag for each desired step within the `<Progres
 </View>
 ```
 
+### Using Icons
+You can specify icons for the progress steps rather than use the default step numbers.  You can add any MaterialCommunityIcon for now but more can be added if someone wants to add them.  You can override the icon type when the step is completed or just leave it as is.
+
+```
+<ProgressSteps topOffset={0} marginBottom={10} activeStep={item.Name.replace("Unit Request-", "")%4}>
+                      <ProgressStep  label="Not Started" removeBtnRow={true}  useIcon={true} iconName={'source-commit-start'} completedStepIconName={'check'}  iconStyles={styles.icon}>
+                         
+                      </ProgressStep>
+                      <ProgressStep label="In Progress" removeBtnRow={true}  useIcon={true} iconName={'package-variant'} iconStyles={styles.icon} >
+                         
+                         </ProgressStep>
+                      <ProgressStep label="Packing" removeBtnRow={true} useIcon={true} iconName={'package-variant-closed'}  iconStyles={styles.icon}>
+                          
+                      </ProgressStep>
+                      <ProgressStep label="Dispatch" removeBtnRow={true}  useIcon={true} iconName={'truck-delivery-outline'}  iconStyles={styles.icon}>
+                         
+                      </ProgressStep>
+                  </ProgressSteps>
+```
+
+
 ### Button Styling Usage
 Button container and text are fully customizable using the `nextBtnStyle, nextBtnTextStyle, previousBtnStyle, and previousBtnTextStyle` props.
 
