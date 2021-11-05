@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "tsc -d --declarationDir dist/lib --declarationMap --emitDeclarationOnly"
+    "build": "tsc -d --declarationDir dist/lib --declarationMap --emitDeclarationOnly"
   },
   "repository": {
     "type": "git",
