@@ -3,6 +3,7 @@
   "version": "1.3.4",
   "description": "A simple and fully customizable React Native component that implements a progress stepper UI.",
   "main": "index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -d --declarationDir dist/lib --declarationMap --emitDeclarationOnly"

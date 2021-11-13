@@ -20,7 +20,8 @@
     "allowSyntheticDefaultImports": true,
     "removeComments": true,
     "declaration": true,
-    "allowJs": true
+    "allowJs": true,
+    "emitDeclarationOnly": true,
   },
   "include": [
     "./src/"
