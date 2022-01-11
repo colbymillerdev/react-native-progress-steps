@@ -100,7 +100,7 @@ class ProgressStep extends Component {
     return (
       <View style={{ flex: 1 }}>
         {isScrollable
-          ? <ScrollView {...scrollViewProps} ref={scrollViewRef}>{this.props.children}</ScrollView>
+          ? <ScrollView {...scrollViewProps} ref={this.props.scrollViewRef}>{this.props.children}</ScrollView>
           : <View {...viewProps}>{this.props.children}</View>}
 
         {buttonRow}
