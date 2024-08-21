@@ -57,7 +57,7 @@ class StepIcon extends Component {
     } else if (this.props.isCompletedStep) {
       styles = {
         circleStyle: {
-          justifyContent: 'center';
+          justifyContent: 'center',
           width: 36,
           height: 36,
           borderRadius: 18,
