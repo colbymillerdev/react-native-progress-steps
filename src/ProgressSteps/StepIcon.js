@@ -153,7 +153,7 @@ class StepIcon extends Component {
         <View style={styles.circleStyle}>
           <Text style={styles.circleText}>
             {this.props.isCompletedStep ? (
-              <Text style={{ color: this.props.completedCheckColor }}>&#10003;</Text>
+              <Text style={{ color: this.props.completedCheckColor }}>&#10004;</Text>
             ) : (
               <Text style={styles.stepNum}>{this.props.stepNum}</Text>
             )}
