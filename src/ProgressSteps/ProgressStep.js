@@ -94,6 +94,7 @@ class ProgressStep extends Component {
       <ProgressButtons 
         renderNextButton={this.renderNextButton} 
         renderPreviousButton={this.renderPreviousButton} 
+        buttonBottom={this.props.buttonBottom}
       />
     );
 
@@ -129,7 +130,8 @@ ProgressStep.propTypes = {
   viewProps: PropTypes.object,
   errors: PropTypes.bool,
   removeBtnRow: PropTypes.bool,
-  scrollable: PropTypes.bool
+  scrollable: PropTypes.bool,
+  buttonBottom: PropTypes.number
 };
 
 ProgressStep.defaultProps = {
@@ -140,7 +142,8 @@ ProgressStep.defaultProps = {
   previousBtnDisabled: false,
   errors: false,
   removeBtnRow: false,
-  scrollable: true
+  scrollable: true,
+  buttonBottom: 40
 };
 
 export default ProgressStep;
