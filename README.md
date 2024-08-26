@@ -175,6 +175,8 @@ render() {
 | viewProps | Object to provide props to view component if scrollable is false | {} | Object |
 | errors | Used to assist with current step validation. If true, the next step won't be rendered | false | Boolean |
 | removeBtnRow | Used to render the progress step without the button row | false | Boolean |
+| buttonBottom | Distance from the bottom of the page to the buttons | 40 | Number |
+|primaryStepButton| Use the previous button in the first step | false | Boolean |
 
 ## Contributing
 Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that can be made.

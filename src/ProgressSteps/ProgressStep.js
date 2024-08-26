@@ -81,7 +81,7 @@ class ProgressStep extends Component {
 
     return (
       <TouchableOpacity style={btnStyle} onPress={this.onPreviousStep} disabled={this.props.previousBtnDisabled}>
-        <Text style={textStyle}>{this.props.activeStep === 0 ? '' : this.props.previousBtnText}</Text>
+        <Text style={textStyle}>{this.props.activeStep === 0 & this.props.primaryStepButton === false ? '' : this.props.previousBtnText}</Text>
       </TouchableOpacity>
     );
   };
@@ -131,7 +131,8 @@ ProgressStep.propTypes = {
   errors: PropTypes.bool,
   removeBtnRow: PropTypes.bool,
   scrollable: PropTypes.bool,
-  buttonBottom: PropTypes.number
+  buttonBottom: PropTypes.number,
+  primaryStepButton: PropTypes.bool
 };
 
 ProgressStep.defaultProps = {
@@ -143,7 +144,8 @@ ProgressStep.defaultProps = {
   errors: false,
   removeBtnRow: false,
   scrollable: true,
-  buttonBottom: 40
+  buttonBottom: 40,
+  primaryStepButton: false
 };
 
 export default ProgressStep;
