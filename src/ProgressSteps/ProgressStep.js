@@ -81,7 +81,7 @@ class ProgressStep extends Component {
 
     return (
       <TouchableOpacity style={btnStyle} onPress={this.onPreviousStep} disabled={this.props.previousBtnDisabled}>
-        <Text style={textStyle}>{this.props.activeStep === 0 ? '' : this.props.previousBtnText}</Text>
+        <Text style={textStyle}>{this.props.previousBtnText}</Text>
       </TouchableOpacity>
     );
   };
