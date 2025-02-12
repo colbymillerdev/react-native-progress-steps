@@ -53,7 +53,7 @@ export interface StepIconProps {
   isLastStep: boolean;
   isActiveStep: boolean;
   isCompletedStep: boolean;
-  label: string;
+  label?: string;
 
   // Style props (all optional with defaults)
   borderWidth?: number;
