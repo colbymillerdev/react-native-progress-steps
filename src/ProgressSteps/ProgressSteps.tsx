@@ -1,35 +1,41 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import { times } from 'lodash';
-import PropTypes from 'prop-types';
 import StepIcon from './StepIcon';
+import type { ProgressStepsProps, ProgressStepsState } from '../types';
 
-class ProgressSteps extends Component {
-  state = {
-    stepCount: 0,
-    activeStep: this.props.activeStep,
+class ProgressSteps extends Component<ProgressStepsProps, ProgressStepsState> {
+  static defaultProps = {
+    isComplete: false,
+    activeStep: 0,
+    topOffset: 30,
+    marginBottom: 50,
   };
 
-  componentDidMount() {
+  state: ProgressStepsState = {
+    stepCount: 0,
+    activeStep: this.props.activeStep || 0,
+  };
+
+  componentDidMount(): void {
     this.setState({ stepCount: React.Children.count(this.props.children) });
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: ProgressStepsProps): void {
     if (prevProps.activeStep !== this.props.activeStep) {
-      this.setActiveStep(this.props.activeStep);
+      this.setActiveStep(this.props.activeStep || 0);
     }
   }
 
-  getChildProps() {
+  getChildProps(): ProgressStepsProps & ProgressStepsState {
     return { ...this.props, ...this.state };
   }
 
-  renderStepIcons = () => {
-    let step = [];
+  renderStepIcons = (): JSX.Element[] => {
+    const step: JSX.Element[] = [];
 
     times(this.state.stepCount, (i) => {
       const isCompletedStep = this.props.isComplete ? true : i < this.state.activeStep;
-
       const isActiveStep = this.props.isComplete ? false : i === this.state.activeStep;
 
       step.push(
@@ -52,9 +58,7 @@ class ProgressSteps extends Component {
     return step;
   };
 
-  // Callback function from ProgressStep that passes current step.
-  setActiveStep = (step) => {
-    // Guard against setting current step higher than total step count.
+  setActiveStep = (step: number): void => {
     if (step >= this.state.stepCount - 1) {
       this.setState({ activeStep: this.state.stepCount - 1 });
     }
@@ -64,8 +68,8 @@ class ProgressSteps extends Component {
     }
   };
 
-  render() {
-    const styles = {
+  render(): JSX.Element {
+    const styles: { stepIcons: ViewStyle } = {
       stepIcons: {
         position: 'relative',
         justifyContent: 'space-evenly',
@@ -90,19 +94,5 @@ class ProgressSteps extends Component {
     );
   }
 }
-
-ProgressSteps.propTypes = {
-  isComplete: PropTypes.bool,
-  activeStep: PropTypes.number,
-  topOffset: PropTypes.number,
-  marginBottom: PropTypes.number,
-};
-
-ProgressSteps.defaultProps = {
-  isComplete: false,
-  activeStep: 0,
-  topOffset: 30,
-  marginBottom: 50,
-};
 
 export default ProgressSteps;
