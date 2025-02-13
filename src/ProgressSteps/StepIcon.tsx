@@ -3,7 +3,7 @@ import { View, Text, TextStyle, ViewStyle } from 'react-native';
 import type { StepIconProps, StepIconStyles } from '../types';
 
 const StepIcon = ({
-  borderWidth = 3,
+  borderWidth = 2,
   borderStyle = 'solid',
   activeStepIconBorderColor = '#4BB543',
   progressBarColor = '#ebebe4',
@@ -78,6 +78,7 @@ const StepIcon = ({
         },
         labelText: {
           ...baseLabelText,
+          marginTop: 0,
           color: activeLabelColor,
           fontSize: activeLabelFontSize || labelFontSize,
         },

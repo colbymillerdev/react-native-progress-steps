@@ -5,7 +5,8 @@ export interface ProgressButtonsProps {
   renderPreviousButton: () => JSX.Element;
 }
 
-export interface ProgressStepsProps {
+export interface ProgressStepsProps
+  extends Omit<StepIconProps, 'stepNum' | 'isFirstStep' | 'isLastStep' | 'isActiveStep' | 'isCompletedStep' | 'label'> {
   isComplete?: boolean;
   activeStep?: number;
   topOffset?: number;
