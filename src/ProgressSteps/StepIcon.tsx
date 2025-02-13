@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, StyleSheet, Dimensions, Animated } from 'react-native';
 import type { StepIconProps } from '../types';
 
 const CIRCLE_SIZE = 40;
@@ -35,6 +35,21 @@ const StepIcon = ({
     labelFontFamily,
     activeLabelFontSize,
   } = props;
+
+  const lineAnimationValue = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (isCompletedStep || isActiveStep) {
+      Animated.spring(lineAnimationValue, {
+        toValue: 1,
+        useNativeDriver: false,
+        tension: 25,
+        friction: 25,
+      }).start();
+    } else {
+      lineAnimationValue.setValue(0);
+    }
+  }, [isCompletedStep, isActiveStep]);
 
   const getLinePosition = () => {
     const screenWidth = Dimensions.get('window').width;
@@ -82,10 +97,24 @@ const StepIcon = ({
           position: 'absolute',
           ...(isLeft ? { left: 0, right: `${linePosition}%` } : { left: `${linePosition}%`, right: 0 }),
           height: borderWidth,
-          backgroundColor: getLineColor(isLeft),
+          backgroundColor: progressBarColor,
         },
       ]}
-    />
+    >
+      <Animated.View
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          height: '100%',
+          backgroundColor: getLineColor(isLeft),
+          width: lineAnimationValue.interpolate({
+            inputRange: [0, 1],
+            outputRange: ['0%', '100%'],
+          }),
+        }}
+      />
+    </View>
   );
 
   return (
