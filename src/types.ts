@@ -1,4 +1,4 @@
-import type { ViewStyle, TextStyle, ScrollView, View } from 'react-native';
+import type { ViewStyle, TextStyle, ScrollViewProps, ViewProps } from 'react-native';
 
 export interface ProgressButtonsProps {
   renderNextButton: () => JSX.Element;
@@ -20,9 +20,9 @@ export interface ProgressStepsState {
 
 export interface ProgressStepProps {
   // Internal props (set by parent)
-  setActiveStep: (step: number) => void;
-  activeStep: number;
-  stepCount: number;
+  setActiveStep?: (step: number) => void;
+  activeStep?: number;
+  stepCount?: number;
 
   // User-provided props
   label?: string;
@@ -38,9 +38,9 @@ export interface ProgressStepProps {
   previousBtnStyle?: ViewStyle;
   previousBtnTextStyle?: TextStyle;
   previousBtnDisabled?: boolean;
-  scrollViewProps?: React.ComponentProps<typeof ScrollView>;
+  scrollViewProps?: ScrollViewProps;
   scrollable?: boolean;
-  viewProps?: React.ComponentProps<typeof View>;
+  viewProps?: ViewProps;
   errors?: boolean;
   removeBtnRow?: boolean;
   children?: React.ReactNode;
@@ -57,7 +57,7 @@ export interface StepIconProps {
 
   // Style props (all optional with defaults)
   borderWidth?: number;
-  borderStyle?: 'solid' | 'dotted' | 'dashed';
+  borderStyle?: ViewStyle['borderStyle'];
   activeStepIconBorderColor?: string;
   progressBarColor?: string;
   completedProgressBarColor?: string;
