@@ -58,7 +58,7 @@ const ProgressStep = ({
 
   return (
     <View style={{ flex: 1 }}>
-      <Container {...containerProps} style={{ flex: 1 }}>
+      <Container {...containerProps} style={{ flex: 1, marginHorizontal: 20 }}>
         {props.children}
       </Container>
       {!removeBtnRow && (

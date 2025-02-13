@@ -1,10 +1,14 @@
 import React from 'react';
-import { View, Text, TextStyle, ViewStyle } from 'react-native';
-import type { StepIconProps, StepIconStyles } from '../types';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import type { StepIconProps } from '../types';
+
+const CIRCLE_SIZE = 40;
+const MOBILE_BREAKPOINT = 768;
+const MOBILE_LINE_POSITION = 78;
+const DESKTOP_LINE_POSITION = 58;
 
 const StepIcon = ({
   borderWidth = 2,
-  borderStyle = 'solid',
   activeStepIconBorderColor = '#4BB543',
   progressBarColor = '#ebebe4',
   completedProgressBarColor = '#4BB543',
@@ -32,146 +36,130 @@ const StepIcon = ({
     activeLabelFontSize,
   } = props;
 
-  const styles: StepIconStyles = React.useMemo(() => {
-    const baseCircleStyle: ViewStyle = {
-      width: 36,
-      height: 36,
-      borderRadius: 18,
-    };
+  const getLinePosition = () => {
+    const screenWidth = Dimensions.get('window').width;
+    const isMobileWidth = screenWidth <= MOBILE_BREAKPOINT;
+    return isMobileWidth ? MOBILE_LINE_POSITION : DESKTOP_LINE_POSITION;
+  };
 
-    const baseCircleText: TextStyle = {
-      alignSelf: 'center',
-      top: 18 / 2,
-    };
-
-    const baseLabelText: TextStyle = {
-      textAlign: 'center',
-      flexWrap: 'wrap',
-      width: 100,
-      paddingTop: 4,
-      fontFamily: labelFontFamily,
-      marginTop: 4,
-      fontSize: labelFontSize,
-    };
-
-    const baseBarStyle: ViewStyle = {
-      position: 'absolute',
-      borderStyle: borderStyle,
-      borderWidth: borderWidth,
-    };
-
-    if (isActiveStep) {
-      return {
-        circleStyle: {
-          ...baseCircleStyle,
-          width: 40,
-          height: 40,
-          borderRadius: 20,
-          backgroundColor: activeStepIconColor,
-          borderColor: activeStepIconBorderColor,
-          borderWidth: 5,
-          bottom: 2,
-        },
-        circleText: {
-          ...baseCircleText,
-          top: 20 / 3,
-        },
-        labelText: {
-          ...baseLabelText,
-          marginTop: 0,
-          color: activeLabelColor,
-          fontSize: activeLabelFontSize || labelFontSize,
-        },
-        leftBar: {
-          ...baseBarStyle,
-          top: 40 / 2.22,
-          left: 0,
-          right: 40 + 8,
-          borderColor: completedProgressBarColor,
-          marginRight: 40 / 2 + 2,
-        },
-        rightBar: {
-          ...baseBarStyle,
-          top: 40 / 2.22,
-          right: 0,
-          left: 40 + 8,
-          borderColor: progressBarColor,
-          marginLeft: 40 / 2 + 2,
-        },
-        stepNum: {
-          color: activeStepNumColor,
-        },
-      };
-    } else {
-      return {
-        circleStyle: {
-          ...baseCircleStyle,
-          backgroundColor: isCompletedStep ? completedStepIconColor : disabledStepIconColor,
-        },
-        circleText: baseCircleText,
-        labelText: {
-          ...baseLabelText,
-          color: isCompletedStep ? completedLabelColor : labelColor,
-        },
-        leftBar: {
-          ...baseBarStyle,
-          top: 36 / 2,
-          left: 0,
-          right: 36 + 8,
-          borderColor: isCompletedStep ? completedProgressBarColor : progressBarColor,
-          marginRight: 36 / 2 + 4,
-        },
-        rightBar: {
-          ...baseBarStyle,
-          top: 36 / 2,
-          right: 0,
-          left: 36 + 8,
-          borderColor: isCompletedStep ? completedProgressBarColor : progressBarColor,
-          marginLeft: 36 / 2 + 4,
-        },
-        stepNum: {
-          color: isCompletedStep ? completedStepNumColor : disabledStepNumColor,
-        },
-      };
+  const getLineColor = (isLeftLine: boolean) => {
+    if (isLeftLine && (isCompletedStep || isActiveStep)) {
+      return completedProgressBarColor;
     }
-  }, [
-    isActiveStep,
-    isCompletedStep,
-    activeStepIconColor,
-    activeStepIconBorderColor,
-    completedStepIconColor,
-    disabledStepIconColor,
-    activeLabelColor,
-    completedLabelColor,
-    labelColor,
-    activeStepNumColor,
-    completedStepNumColor,
-    disabledStepNumColor,
-    completedProgressBarColor,
-    progressBarColor,
-    borderStyle,
-    borderWidth,
-    labelFontFamily,
-    labelFontSize,
-    activeLabelFontSize,
-  ]);
+
+    if (!isLeftLine && isCompletedStep) {
+      return completedProgressBarColor;
+    }
+
+    return progressBarColor;
+  };
+
+  const getStepColor = () => {
+    if (isActiveStep) return activeStepIconColor;
+    if (isCompletedStep) return completedStepIconColor;
+    return disabledStepIconColor;
+  };
+
+  const getLabelColor = () => {
+    if (isActiveStep) return activeLabelColor;
+    if (isCompletedStep) return completedLabelColor;
+    return labelColor;
+  };
+
+  const getNumberColor = () => {
+    if (isActiveStep) return activeStepNumColor;
+    if (isCompletedStep) return completedStepNumColor;
+    return disabledStepNumColor;
+  };
+
+  const linePosition = getLinePosition();
+
+  const renderLine = (isLeft: boolean) => (
+    <View
+      style={[
+        styles.line,
+        {
+          position: 'absolute',
+          ...(isLeft ? { left: 0, right: `${linePosition}%` } : { left: `${linePosition}%`, right: 0 }),
+          height: borderWidth,
+          backgroundColor: getLineColor(isLeft),
+        },
+      ]}
+    />
+  );
 
   return (
-    <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-      <View style={styles.circleStyle}>
-        <Text style={styles.circleText}>
+    <View style={styles.container}>
+      <View style={styles.lineContainer}>
+        {!isFirstStep && renderLine(true)}
+        <View
+          style={[
+            styles.circle,
+            {
+              width: CIRCLE_SIZE,
+              height: CIRCLE_SIZE,
+              borderRadius: CIRCLE_SIZE / 2,
+              backgroundColor: getStepColor(),
+              ...(isActiveStep && {
+                borderColor: activeStepIconBorderColor,
+                borderWidth: 5,
+              }),
+            },
+          ]}
+        >
           {isCompletedStep ? (
-            <Text style={{ color: completedCheckColor }}>&#10003;</Text>
+            <Text style={[styles.stepText, { color: completedCheckColor }]}>&#10003;</Text>
           ) : (
-            <Text style={styles.stepNum}>{stepNum}</Text>
+            <Text style={[styles.stepText, { color: getNumberColor() }]}>{stepNum}</Text>
           )}
-        </Text>
+        </View>
+        {!isLastStep && renderLine(false)}
       </View>
-      <Text style={styles.labelText}>{label}</Text>
-      {!isFirstStep && <View style={styles.leftBar} />}
-      {!isLastStep && <View style={styles.rightBar} />}
+      <Text
+        style={[
+          styles.label,
+          {
+            color: getLabelColor(),
+            fontSize: isActiveStep ? activeLabelFontSize || labelFontSize : labelFontSize,
+            fontFamily: labelFontFamily,
+          },
+        ]}
+        numberOfLines={2}
+      >
+        {label}
+      </Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+  },
+  lineContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+  },
+  circle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 2,
+  },
+  line: {
+    zIndex: 1,
+  },
+  stepText: {
+    fontSize: 16,
+    fontWeight: '500',
+  },
+  label: {
+    textAlign: 'center',
+    marginTop: 8,
+    maxWidth: '80%',
+  },
+});
 
 export default StepIcon;
