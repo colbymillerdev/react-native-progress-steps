@@ -11,19 +11,19 @@ const DESKTOP_LINE_POSITION = 58;
 const StepIcon = ({
   borderWidth = 2,
   activeStepIconBorderColor = '#2D2D2D',
-  progressBarColor = '#ebebe4',
+  progressBarColor = '#EBEBE4',
   completedProgressBarColor = '#2D2D2D',
   activeStepIconColor = 'transparent',
   completedStepIconColor = '#2D2D2D',
-  disabledStepIconColor = '#ebebe4',
-  labelColor = 'lightgray',
+  disabledStepIconColor = '#EBEBE4',
+  labelColor = '#D3D3D3',
   labelFontSize = 14,
   activeLabelColor = '#2D2D2D',
   completedLabelColor = '#2D2D2D',
   activeStepNumColor = '#2D2D2D',
   completedStepNumColor = '#2D2D2D',
-  disabledStepNumColor = 'white',
-  completedCheckColor = 'white',
+  disabledStepNumColor = '#FFFFFF',
+  completedCheckColor = '#FFFFFF',
   ...props
 }: StepIconProps) => {
   const {

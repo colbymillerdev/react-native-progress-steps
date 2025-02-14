@@ -3,16 +3,17 @@ import { View, ScrollView, Text, Pressable, ViewStyle, TextStyle } from 'react-n
 import type { ProgressStepProps } from '../types';
 
 const ProgressStep = ({
-  nextBtnText = 'Next',
-  previousBtnText = 'Previous',
-  finishBtnText = 'Submit',
-  nextBtnDisabled = false,
-  previousBtnDisabled = false,
   errors = false,
   removeBtnRow = false,
   scrollable = true,
   activeStep = 0,
   stepCount = 0,
+  buttonNextText = 'Next',
+  buttonPreviousText = 'Previous',
+  buttonFinishText = 'Submit',
+  buttonNextDisabled = false,
+  buttonPreviousDisabled = false,
+  buttonFinishDisabled = false,
   buttonBottomOffset = 20,
   buttonTopOffset = 12,
   buttonHorizontalOffset = 30,
@@ -65,12 +66,12 @@ const ProgressStep = ({
           backgroundColor: buttonFillColor,
           opacity: pressed ? 0.8 : 1,
         },
-        nextBtnDisabled && { backgroundColor: buttonDisabledColor },
+        buttonNextDisabled && { backgroundColor: buttonDisabledColor },
       ]}
       onPress={onNextStep}
-      disabled={nextBtnDisabled}
+      disabled={buttonNextDisabled}
     >
-      <Text style={[baseTextStyle, { color: buttonNextTextColor }]}>{nextBtnText}</Text>
+      <Text style={[baseTextStyle, { color: buttonNextTextColor }]}>{buttonNextText}</Text>
     </Pressable>
   );
 
@@ -80,16 +81,18 @@ const ProgressStep = ({
         baseButtonStyle,
         {
           borderWidth: 1,
-          borderColor: previousBtnDisabled ? 'transparent' : buttonBorderColor,
+          borderColor: buttonPreviousDisabled ? 'transparent' : buttonBorderColor,
           opacity: pressed ? 0.8 : 1,
         },
-        previousBtnDisabled && { backgroundColor: buttonDisabledColor },
+        buttonPreviousDisabled && { backgroundColor: buttonDisabledColor },
       ]}
       onPress={onPreviousStep}
-      disabled={previousBtnDisabled}
+      disabled={buttonPreviousDisabled}
     >
-      <Text style={[baseTextStyle, { color: previousBtnDisabled ? buttonDisabledTextColor : buttonPreviousTextColor }]}>
-        {isFirstStep ? '' : previousBtnText}
+      <Text
+        style={[baseTextStyle, { color: buttonPreviousDisabled ? buttonDisabledTextColor : buttonPreviousTextColor }]}
+      >
+        {isFirstStep ? '' : buttonPreviousText}
       </Text>
     </Pressable>
   );
@@ -102,10 +105,12 @@ const ProgressStep = ({
           backgroundColor: buttonFillColor,
           opacity: pressed ? 0.8 : 1,
         },
+        buttonFinishDisabled && { backgroundColor: buttonDisabledColor },
       ]}
       onPress={props.onSubmit}
+      disabled={buttonFinishDisabled}
     >
-      <Text style={[baseTextStyle, { color: buttonFinishTextColor }]}>{finishBtnText}</Text>
+      <Text style={[baseTextStyle, { color: buttonFinishTextColor }]}>{buttonFinishText}</Text>
     </Pressable>
   );
 

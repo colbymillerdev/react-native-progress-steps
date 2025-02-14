@@ -1,4 +1,4 @@
-import type { ViewStyle, TextStyle, ScrollViewProps, ViewProps } from 'react-native';
+import type { ScrollViewProps, ViewProps } from 'react-native';
 export interface ProgressStepsProps
   extends Omit<StepIconProps, 'stepNum' | 'isFirstStep' | 'isLastStep' | 'isActiveStep' | 'isCompletedStep' | 'label'> {
   isComplete?: boolean;
@@ -24,25 +24,26 @@ export interface ProgressStepProps {
   onNext?: () => void;
   onPrevious?: () => void;
   onSubmit?: () => void;
-  nextBtnText?: string;
-  previousBtnText?: string;
-  finishBtnText?: string;
-  nextBtnDisabled?: boolean;
-  previousBtnDisabled?: boolean;
   scrollViewProps?: ScrollViewProps;
   scrollable?: boolean;
   viewProps?: ViewProps;
   errors?: boolean;
   removeBtnRow?: boolean;
   children?: React.ReactNode;
+  buttonNextText?: string;
+  buttonPreviousText?: string;
+  buttonFinishText?: string;
+  buttonNextDisabled?: boolean;
+  buttonPreviousDisabled?: boolean;
+  buttonFinishDisabled?: boolean;
   buttonTopOffset?: number;
   buttonBottomOffset?: number;
   buttonHorizontalOffset?: number;
   buttonFillColor?: string;
+  buttonBorderColor?: string;
   buttonNextTextColor?: string;
   buttonPreviousTextColor?: string;
   buttonFinishTextColor?: string;
-  buttonBorderColor?: string;
   buttonDisabledColor?: string;
   buttonDisabledTextColor?: string;
 }
@@ -58,7 +59,6 @@ export interface StepIconProps {
 
   // Style props (all optional with defaults)
   borderWidth?: number;
-  borderStyle?: ViewStyle['borderStyle'];
   activeStepIconBorderColor?: string;
   progressBarColor?: string;
   completedProgressBarColor?: string;
@@ -75,13 +75,4 @@ export interface StepIconProps {
   completedStepNumColor?: string;
   disabledStepNumColor?: string;
   completedCheckColor?: string;
-}
-
-export interface StepIconStyles {
-  circleStyle: ViewStyle;
-  circleText: TextStyle;
-  labelText: TextStyle;
-  leftBar: ViewStyle;
-  rightBar: ViewStyle;
-  stepNum: TextStyle;
 }
