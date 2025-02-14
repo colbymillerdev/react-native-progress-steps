@@ -26,6 +26,7 @@ A simple and fully customizable React Native component that implements a progres
 
 <img src="assets/example.png" width="300" height="600" 
      style="border-radius: 15px; border: 2px solid #ccc; display: block;" />
+
 <a href="examples/example.jsx">examples/example.js</a>
 
 ## Installation
