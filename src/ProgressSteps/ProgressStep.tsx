@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, TouchableOpacity, Text } from 'react-native';
+import { View, ScrollView, Text, Pressable, ViewStyle, TextStyle } from 'react-native';
 import type { ProgressStepProps } from '../types';
 
 const ProgressStep = ({
@@ -16,9 +16,16 @@ const ProgressStep = ({
   buttonBottomOffset = 20,
   buttonTopOffset = 12,
   buttonHorizontalOffset = 30,
+  buttonFillColor = '#2D2D2D',
+  buttonNextTextColor = '#FFFFFF',
+  buttonPreviousTextColor = '#2D2D2D',
+  buttonFinishTextColor = '#FFFFFF',
+  buttonBorderColor = '#2D2D2D',
+  buttonDisabledColor = '#CDCDCD',
+  buttonDisabledTextColor = '#FFFFFF',
   ...props
 }: ProgressStepProps) => {
-  const isDisabled = previousBtnDisabled || activeStep === 0;
+  const isPreviousBtnHidden = activeStep === 0;
   const isFirstStep = activeStep === 0;
 
   const onNextStep = (): void => {
@@ -37,56 +44,73 @@ const ProgressStep = ({
     }
   };
 
+  const baseButtonStyle: ViewStyle = {
+    height: 48,
+    minWidth: 120,
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
+  const baseTextStyle: TextStyle = {
+    fontSize: 16,
+    fontWeight: '500',
+  };
+
   const renderNextButton = (): JSX.Element => (
-    <TouchableOpacity style={[{ padding: 8 }, props.nextBtnStyle]} onPress={onNextStep} disabled={nextBtnDisabled}>
-      <Text
-        style={[
-          {
-            color: nextBtnDisabled ? '#CDCDCD' : '#007AFF',
-            fontSize: 18,
-          },
-          props.nextBtnTextStyle,
-        ]}
-      >
-        {nextBtnText}
-      </Text>
-    </TouchableOpacity>
+    <Pressable
+      style={({ pressed }) => [
+        baseButtonStyle,
+        {
+          backgroundColor: buttonFillColor,
+          opacity: pressed ? 0.8 : 1,
+        },
+        nextBtnDisabled && { backgroundColor: buttonDisabledColor },
+      ]}
+      onPress={onNextStep}
+      disabled={nextBtnDisabled}
+    >
+      <Text style={[baseTextStyle, { color: buttonNextTextColor }]}>{nextBtnText}</Text>
+    </Pressable>
   );
 
   const renderPreviousButton = (): JSX.Element => (
-    <TouchableOpacity style={[{ padding: 8 }, props.previousBtnStyle]} onPress={onPreviousStep} disabled={isDisabled}>
-      <Text
-        style={[
-          {
-            color: isDisabled ? '#CDCDCD' : '#007AFF',
-            fontSize: 18,
-          },
-          props.previousBtnTextStyle,
-        ]}
-      >
+    <Pressable
+      style={({ pressed }) => [
+        baseButtonStyle,
+        {
+          borderWidth: 1,
+          borderColor: previousBtnDisabled ? 'transparent' : buttonBorderColor,
+          opacity: pressed ? 0.8 : 1,
+        },
+        previousBtnDisabled && { backgroundColor: buttonDisabledColor },
+      ]}
+      onPress={onPreviousStep}
+      disabled={previousBtnDisabled}
+    >
+      <Text style={[baseTextStyle, { color: previousBtnDisabled ? buttonDisabledTextColor : buttonPreviousTextColor }]}>
         {isFirstStep ? '' : previousBtnText}
       </Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 
   const renderSubmitButton = (): JSX.Element => (
-    <TouchableOpacity style={[{ padding: 8 }, props.nextBtnStyle]} onPress={props.onSubmit}>
-      <Text style={[{ color: '#007AFF', fontSize: 18 }, props.nextBtnTextStyle]}>{finishBtnText}</Text>
-    </TouchableOpacity>
+    <Pressable
+      style={({ pressed }) => [
+        baseButtonStyle,
+        {
+          backgroundColor: buttonFillColor,
+          opacity: pressed ? 0.8 : 1,
+        },
+      ]}
+      onPress={props.onSubmit}
+    >
+      <Text style={[baseTextStyle, { color: buttonFinishTextColor }]}>{finishBtnText}</Text>
+    </Pressable>
   );
 
   const Container = scrollable ? ScrollView : View;
-  const containerProps = scrollable
-    ? {
-        ...props.scrollViewProps,
-        contentContainerStyle: [
-          props.scrollViewProps?.contentContainerStyle &&
-            Object.fromEntries(
-              Object.entries(props.scrollViewProps.contentContainerStyle).filter(([key]) => key !== 'flex')
-            ),
-        ],
-      }
-    : props.viewProps;
+  const containerProps = scrollable ? props.scrollViewProps : props.viewProps;
 
   return (
     <View style={{ flex: 1 }}>
@@ -103,7 +127,7 @@ const ProgressStep = ({
             justifyContent: 'space-between',
           }}
         >
-          <View style={{ flex: 1 }}>{renderPreviousButton()}</View>
+          <View style={{ flex: 1, alignItems: 'flex-start' }}>{!isPreviousBtnHidden && renderPreviousButton()}</View>
           <View style={{ flex: 1, alignItems: 'flex-end' }}>
             {activeStep === stepCount - 1 ? renderSubmitButton() : renderNextButton()}
           </View>

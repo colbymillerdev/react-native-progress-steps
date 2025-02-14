@@ -27,11 +27,7 @@ export interface ProgressStepProps {
   nextBtnText?: string;
   previousBtnText?: string;
   finishBtnText?: string;
-  nextBtnStyle?: ViewStyle;
-  nextBtnTextStyle?: TextStyle;
   nextBtnDisabled?: boolean;
-  previousBtnStyle?: ViewStyle;
-  previousBtnTextStyle?: TextStyle;
   previousBtnDisabled?: boolean;
   scrollViewProps?: ScrollViewProps;
   scrollable?: boolean;
@@ -42,6 +38,13 @@ export interface ProgressStepProps {
   buttonTopOffset?: number;
   buttonBottomOffset?: number;
   buttonHorizontalOffset?: number;
+  buttonFillColor?: string;
+  buttonNextTextColor?: string;
+  buttonPreviousTextColor?: string;
+  buttonFinishTextColor?: string;
+  buttonBorderColor?: string;
+  buttonDisabledColor?: string;
+  buttonDisabledTextColor?: string;
 }
 
 export interface StepIconProps {
