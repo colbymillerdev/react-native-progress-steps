@@ -13,8 +13,14 @@ const ProgressStep = ({
   scrollable = true,
   activeStep = 0,
   stepCount = 0,
+  buttonBottomOffset = 20,
+  buttonTopOffset = 12,
+  buttonHorizontalOffset = 30,
   ...props
 }: ProgressStepProps) => {
+  const isDisabled = previousBtnDisabled || activeStep === 0;
+  const isFirstStep = activeStep === 0;
+
   const onNextStep = (): void => {
     props.onNext?.();
 
@@ -33,17 +39,33 @@ const ProgressStep = ({
 
   const renderNextButton = (): JSX.Element => (
     <TouchableOpacity style={[{ padding: 8 }, props.nextBtnStyle]} onPress={onNextStep} disabled={nextBtnDisabled}>
-      <Text style={[{ color: '#007AFF', fontSize: 18 }, props.nextBtnTextStyle]}>{nextBtnText}</Text>
+      <Text
+        style={[
+          {
+            color: nextBtnDisabled ? '#CDCDCD' : '#007AFF',
+            fontSize: 18,
+          },
+          props.nextBtnTextStyle,
+        ]}
+      >
+        {nextBtnText}
+      </Text>
     </TouchableOpacity>
   );
 
   const renderPreviousButton = (): JSX.Element => (
-    <TouchableOpacity
-      style={[{ padding: 8 }, props.previousBtnStyle]}
-      onPress={onPreviousStep}
-      disabled={previousBtnDisabled || activeStep === 0}
-    >
-      <Text style={[{ color: '#007AFF', fontSize: 18 }, props.previousBtnTextStyle]}>{previousBtnText}</Text>
+    <TouchableOpacity style={[{ padding: 8 }, props.previousBtnStyle]} onPress={onPreviousStep} disabled={isDisabled}>
+      <Text
+        style={[
+          {
+            color: isDisabled ? '#CDCDCD' : '#007AFF',
+            fontSize: 18,
+          },
+          props.previousBtnTextStyle,
+        ]}
+      >
+        {isFirstStep ? '' : previousBtnText}
+      </Text>
     </TouchableOpacity>
   );
 
@@ -54,7 +76,17 @@ const ProgressStep = ({
   );
 
   const Container = scrollable ? ScrollView : View;
-  const containerProps = scrollable ? props.scrollViewProps : props.viewProps;
+  const containerProps = scrollable
+    ? {
+        ...props.scrollViewProps,
+        contentContainerStyle: [
+          props.scrollViewProps?.contentContainerStyle &&
+            Object.fromEntries(
+              Object.entries(props.scrollViewProps.contentContainerStyle).filter(([key]) => key !== 'flex')
+            ),
+        ],
+      }
+    : props.viewProps;
 
   return (
     <View style={{ flex: 1 }}>
@@ -65,9 +97,9 @@ const ProgressStep = ({
         <View
           style={{
             flexDirection: 'row',
-            marginTop: 12,
-            marginBottom: 12,
-            marginHorizontal: 12,
+            marginTop: buttonTopOffset,
+            marginBottom: buttonBottomOffset,
+            marginHorizontal: buttonHorizontalOffset,
             justifyContent: 'space-between',
           }}
         >

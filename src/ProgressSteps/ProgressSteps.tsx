@@ -8,8 +8,8 @@ const ProgressSteps = ({
   children,
   isComplete = false,
   activeStep: initialActiveStep = 0,
-  topOffset = 30,
-  marginBottom = 50,
+  topOffset = 60,
+  marginBottom = 30,
   ...props
 }: ProgressStepsProps) => {
   const [stepCount, setStepCount] = React.useState<ProgressStepsState['stepCount']>(0);

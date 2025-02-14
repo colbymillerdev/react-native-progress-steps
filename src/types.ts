@@ -1,10 +1,4 @@
 import type { ViewStyle, TextStyle, ScrollViewProps, ViewProps } from 'react-native';
-
-export interface ProgressButtonsProps {
-  renderNextButton: () => JSX.Element;
-  renderPreviousButton: () => JSX.Element;
-}
-
 export interface ProgressStepsProps
   extends Omit<StepIconProps, 'stepNum' | 'isFirstStep' | 'isLastStep' | 'isActiveStep' | 'isCompletedStep' | 'label'> {
   isComplete?: boolean;
@@ -45,6 +39,9 @@ export interface ProgressStepProps {
   errors?: boolean;
   removeBtnRow?: boolean;
   children?: React.ReactNode;
+  buttonTopOffset?: number;
+  buttonBottomOffset?: number;
+  buttonHorizontalOffset?: number;
 }
 
 export interface StepIconProps {
