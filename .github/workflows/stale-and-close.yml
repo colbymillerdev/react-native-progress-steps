@@ -1,0 +1,27 @@
+# This workflow warns and then closes issues and PRs that have had no activity for a specified amount of time.
+#
+# You can adjust the behavior by modifying this file.
+# For more information, see:
+# https://github.com/actions/stale
+name: Mark stale issues and pull requests then close
+
+on:
+  schedule:
+  - cron: '0 8 * * *'
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+    - uses: actions/stale@v9
+      with:
+        close-issue-message: 'This issue is being automatically closed. The big release of v2 is finally here and addresses a lot of outstanding issues! If your problem still persists, please open another issue and we will take a look. Thanks for using the package!'
+        close-pr-message: 'This PR is being automatically closed. The big release of v2 is finally here and a lot has changed! If you feel the PR is still relevant to the new package version, please open another and we will take a look. Thanks for contributing to the project!'
+        days-before-close: 0
+        operations-per-run: 75
+        
