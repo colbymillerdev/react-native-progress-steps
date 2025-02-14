@@ -20,7 +20,7 @@ A simple and fully customizable React Native component that implements a progres
   - Better readability
 - 💫 **Smooth Step Transitions** - Added subtle animations when changing between steps
 - 🛠️ **Enhanced Customization** - Streamlined props with new customization options and removal of legacy features
-- ⛔️ **Breaking Changes** - Some props have been removed and renamed. See the [Migration Guide](#migration-guide) for more details.
+- ⛔️ **Breaking Changes** - Some props have been removed and renamed. See the [Migration Guide](#migration-guide-v1-to-v2) for more details.
 
 ## Example
 
