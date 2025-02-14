@@ -9,7 +9,7 @@ A simple and fully customizable React Native component that implements a progres
 - Each steps content is displayed inside of a customizable ScrollView.
 - Customizable buttons are displayed at the bottom of the component to move between steps.
 
-## ✨ What's New in 2.0.0
+## ✨ What's New in v2.0
 
 - 🎯 **Full TypeScript Support** - Complete type definitions for an enhanced development experience
 - 🔄 **Modern Component Architecture** - Refactored to use functional components and React hooks
@@ -24,8 +24,8 @@ A simple and fully customizable React Native component that implements a progres
 
 ## Example
 
-<img src="assets/example.png" width="300" height="600" style="border-radius: 8px" />
-<br/>
+<img src="assets/example.png" width="300" height="600" 
+     style="border-radius: 15px; border: 2px solid #ccc; display: block;" />
 <a href="examples/example.jsx">examples/example.js</a>
 
 ## Installation
@@ -96,8 +96,8 @@ To hide the button row, set the `removeBtnRow` prop to `true`. The current step 
 ```
 const [activeStep, setActiveStep] = useState(0);
 
-<ProgressSteps removeBtnRow activeStep={activeStep}>
-    <ProgressStep label="First Step">
+<ProgressSteps activeStep={activeStep}>
+    <ProgressStep label="First Step" removeBtnRow>
         <View style={{ alignItems: 'center' }}>
             <Text>This is the content within step 1!</Text>
         </View>
