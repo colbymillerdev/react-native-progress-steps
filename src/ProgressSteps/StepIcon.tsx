@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Dimensions, Animated } from 'react-native';
+import { Check } from 'lucide-react-native';
 import type { StepIconProps } from '../types';
 
 const CIRCLE_SIZE = 40;
@@ -131,13 +132,13 @@ const StepIcon = ({
               backgroundColor: getStepColor(),
               ...(isActiveStep && {
                 borderColor: activeStepIconBorderColor,
-                borderWidth: 5,
+                borderWidth: 3,
               }),
             },
           ]}
         >
           {isCompletedStep ? (
-            <Text style={[styles.stepText, { color: completedCheckColor }]}>&#10003;</Text>
+            <Check size={18} color={completedCheckColor} />
           ) : (
             <Text style={[styles.stepText, { color: getNumberColor() }]}>{stepNum}</Text>
           )}

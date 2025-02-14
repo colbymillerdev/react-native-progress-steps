@@ -16,7 +16,8 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "lucide-react-native": "^0.475.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.15",
