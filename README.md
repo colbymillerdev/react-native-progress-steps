@@ -27,7 +27,7 @@ A simple and fully customizable React Native component that implements a progres
 <img src="assets/example.png" width="300" height="600" 
      style="border-radius: 15px; border: 2px solid #ccc; display: block;" />
 
-<a href="examples/example.jsx">examples/example.js</a>
+<a href="examples/example.jsx">examples/example.jsx</a>
 
 ## Installation
 
@@ -258,7 +258,7 @@ See the [Progress Step Component](#progress-step-component) section for all avai
 
 Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that can be made.
 
-**Working on your first Pull Request?** You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
+**Working on your first Pull Request?** You can learn how from GitHub's [First Contributions](https://github.com/firstcontributions/first-contributions) guide or their [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/) guide.
 
 ## Author
 
