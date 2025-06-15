@@ -1,5 +1,6 @@
 ![](https://img.shields.io/npm/v/react-native-progress-steps.svg)
 ![](https://img.shields.io/npm/dm/react-native-progress-steps)
+[![Network Dependents](https://dependents.info/colbymillerdev/react-native-progress-steps/badge)](https://dependents.info/colbymillerdev/react-native-progress-steps)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 # React Native Progress Steps
@@ -21,6 +22,12 @@ A simple and fully customizable React Native component that implements a progres
 - 💫 **Smooth Step Transitions** - Added subtle animations when changing between steps
 - 🛠️ **Enhanced Customization** - Streamlined props with new customization options and removal of legacy features
 - ⛔️ **Breaking Changes** - Some props have been removed and renamed. See the [Migration Guide](#migration-guide-v1-to-v2) for more details.
+
+## Used by
+
+<a href="https://dependents.info/colbymillerdev/react-native-progress-steps">
+  <img src="https://dependents.info/colbymillerdev/react-native-progress-steps/image" />
+</a>
 
 ## Example
 
